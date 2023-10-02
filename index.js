@@ -1,6 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.handleError = exports.generatePlayerId = exports.info = void 0;
+/*
+*   @date: Oct 2 , 2023
+*   @author: Vedansh <admin@override.ps1>
+*   @description: Customized Functions for Special Use using TypeScript.
+*   @lang: TypeScript v 5.1.6
+*   @Copyright (c) Vedansh <admin>. All rights reserved.
+*/
 /**
  * Logs a customized message to the console that looks like a info.
  * @param args - An array of arguments that will be logged to the console.
@@ -17,12 +24,11 @@ exports.info = info;
  * Logs a formatted message to the console.
  *
  * @param args An array of arguments that will be logged to the console.
- *
  * @example
- * _info("This is a log message");
+ * trace("This is a log message");
  * // Logs: "YYYY-MM-DD HH:MM:SS.MMM AM/PM [info] >> [ 'This is a log message' ] << [info]"
  */
-function _info() {
+function trace() {
     var args = [];
     for (var _i = 0; _i < arguments.length; _i++) {
         args[_i] = arguments[_i];
@@ -39,7 +45,7 @@ function _info() {
  * @returns A promise that resolves to a string or void, or a string, or null.
  * @example
  * const playerId = generatePlayerId();
- * console.log(playerId); // e.g. "AFAS65437DF"
+ * console.log(playerId); // e.g. "AbC123xyz"
  */
 function generatePlayerId() {
     var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
@@ -91,18 +97,4 @@ function handleError(test) {
     return void (0);
 }
 exports.handleError = handleError;
-/**
- * Logs the provided arguments to the console, with an optional prefix for strings.
- * If an argument is a string, it adds a prefix of "-> " before logging it.
- * 
- * @param {...*} args - Any number of arguments of any type.
- * @returns {undefined} - The function only logs the modified arguments to the console.
- */
-exports.puts = function(...args) {
-    const prefix = '-> ';
-    const modified = args.map(arg => typeof arg === 'string' ? prefix + arg : arg);
-    console.log(...modified);
-}
-
-exports.printf = console.log;
 /* The End */ 
