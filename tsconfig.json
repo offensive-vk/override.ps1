@@ -2,7 +2,7 @@
     "compilerOptions": {
         "target": "ES2015",
         "lib": [
-            "ESNext",
+            "ESNext", "DOM"
         ],
         "module": "commonjs", 
         "esModuleInterop": true, 
