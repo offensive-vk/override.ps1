@@ -1,0 +1,26 @@
+{
+  "name": "override.ps1",
+  "version": "1.1.1",
+  "description": "Personal JS and TS Based Functions , For Private Use only.",
+  "main": "index.js",
+  "scripts": {
+    "test": "null"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/offensive-vk/override.ps1.git"
+  },
+  "keywords": [
+    "JSX",
+    "TSX",
+    "JS",
+    "TS",
+    "D.TS"
+  ],
+  "author": "Vedansh <admin@override.ps1>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/offensive-vk/override.ps1/issues"
+  },
+  "homepage": "https://github.com/offensive-vk/override.ps1#readme"
+}
