@@ -9,12 +9,11 @@ export function info(...args: any[]): void{
  * Logs a formatted message to the console.
  * 
  * @param args An array of arguments that will be logged to the console.
- * 
  * @example
- * _info("This is a log message");
+ * trace("This is a log message");
  * // Logs: "YYYY-MM-DD HH:MM:SS.MMM AM/PM [info] >> [ 'This is a log message' ] << [info]"
  */
-function _info(...args: any[]): void {
+function trace(...args: any[]): void {
     const currentDate = new Date();
     const hours = currentDate.getHours() > 12 ? currentDate.getHours() - 12 : currentDate.getHours();
     const minutes = currentDate.getMinutes() < 10 ? `0${currentDate.getMinutes()}` : currentDate.getMinutes();
