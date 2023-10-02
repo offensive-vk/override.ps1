@@ -3,6 +3,7 @@
 *   @author: Vedansh <admin@override.ps1>
 *   @description: Customized Functions for Special Use using TypeScript.
 *   @lang: TypeScript v 5.1.6
+*   @Copyright (c) Vedansh <admin>. All rights reserved.
 */
 /**
  * Logs a customized message to the console that looks like a info.
