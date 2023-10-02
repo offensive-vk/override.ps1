@@ -1,3 +1,9 @@
+/* 
+*   @date: Oct 2 , 2023
+*   @author: Vedansh <admin@override.ps1>
+*   @description: Customized Functions for Special Use using TypeScript.
+*   @lang: TypeScript v 5.1.6
+*/
 /**
  * Logs a customized message to the console that looks like a info.
  * @param args - An array of arguments that will be logged to the console.
