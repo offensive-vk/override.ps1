@@ -65,12 +65,18 @@ async function createKeyValuePair<K, V>(key: K, value: V): Promise<KeyValuePair<
         }, 2000);
     });
 }
-
+/**
+ * Creates a key-value pair using the provided key and value.
+ * It is done via using Generic Programming.
+ * @param key - The key for the key-value pair.
+ * @param value - The value for the key-value pair.
+ * @returns A Promise that resolves to void.
+ */
 async function CreateKeyValuePair(key: any, value: any): Promise<void> {
     const pair = await createKeyValuePair<typeof key, typeof value>(key, value);
-
     console.log(`Created New KeyValuePair -> { ${key} : ${value} }\n`);
 }
-CreateKeyValuePair(true, 55.2);
+
+//CreateKeyValuePair(true, 55.2);
 
 export default CreateKeyValuePair;
