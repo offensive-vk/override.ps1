@@ -1,4 +1,3 @@
-// 1. Generic class that represents a stack of elements of type T
 namespace Global {
     class Stack<T> {
         private elements: T[] = [];
@@ -78,5 +77,4 @@ async function CreateKeyValuePair(key: any, value: any): Promise<void> {
 }
 
 //CreateKeyValuePair(true, 55.2);
-
 export default CreateKeyValuePair;
