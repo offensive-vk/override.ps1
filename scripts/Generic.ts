@@ -37,7 +37,3 @@ export namespace Global {
         console.log(str);
     }
 }
-interface KeyValuePair<K, V> {
-    key: K;
-    value: V;
-}
