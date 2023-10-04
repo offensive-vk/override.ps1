@@ -1,6 +1,6 @@
 {
   "name": "override.ps1",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Personal JS and TS Based Functions , For Private Use only.",
   "main": "index.js",
   "scripts": {
