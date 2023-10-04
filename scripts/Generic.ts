@@ -1,4 +1,4 @@
-namespace Global {
+export namespace Global {
     class Stack<T> {
         private elements: T[] = [];
         public static StackName: string | undefined = '';
@@ -41,39 +41,3 @@ interface KeyValuePair<K, V> {
     key: K;
     value: V;
 }
-
-/**
- * Generic function to create a KeyValuePair asynchronously.
- * 
- * @param key - The key of the KeyValuePair.
- * @param value - The value of the KeyValuePair.
- * @returns A Promise that resolves to a KeyValuePair object.
- * 
- * @example
- * const numberStringPair = await createKeyValuePair<number, string>(1, "TypeScript");
- * // numberStringPair is { key: 1, value: "TypeScript" }
- * 
- * const stringBooleanPair = await createKeyValuePair<string, boolean>("isTrue", true);
- * // stringBooleanPair is { key: "isTrue", value: true }
- */
-async function createKeyValuePair<K, V>(key: K, value: V): Promise<KeyValuePair<K, V>> {
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            resolve({ key, value });
-        }, 2000);
-    });
-}
-/**
- * Creates a key-value pair using the provided key and value.
- * It is done via using Generic Programming.
- * @param key - The key for the key-value pair.
- * @param value - The value for the key-value pair.
- * @returns A Promise that resolves to void.
- */
-async function CreateKeyValuePair(key: any, value: any): Promise<void> {
-    const pair = await createKeyValuePair<typeof key, typeof value>(key, value);
-    console.log(`Created New KeyValuePair -> { ${key} : ${value} }\n`);
-}
-
-//CreateKeyValuePair(true, 55.2);
-export default CreateKeyValuePair;
