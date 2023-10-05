@@ -79,8 +79,8 @@ export class NewUsers implements Default{
     }
     protected callStats(): Array<Special> | Array<string> | null{
         console.log(`Displaying All <Protected> Data from ${NewUsers.ClassName} \n`);
-        const Data = await this.displayData();
-        console.log()
+        const ActualData = await this.displayData();
+        console.log(`Congrats ! Data Has Been Fetched.. \n ${ActualData}\n `);
     }
 
 }
