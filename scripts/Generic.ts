@@ -37,16 +37,20 @@ export namespace Global {
         console.log(str);
     }
 }
-type Special = string & boolean;
+
+/* 
+* @brief Custom Data Type for Interface Handler.
+*/
+type Special = string | boolean;
 
 export interface Default {
     isDefault?: boolean | undefined;
     isPrivate?: boolean | undefined;
     isPermanent?: boolean | undefined;
-    isMasterOrMain?: boolean | undefined;
+    isMasterOrMain?: boolean | string;
 
-    AllUserNames: Array<string> | null;
-    displayStats: Special | undefined;
+    AllUserNames?: Array<string> | null;
+    displayStats?: Special | undefined;
     callStats(): Array<Special> | Array<string> | null;
 }
 
@@ -63,14 +67,20 @@ export class NewUsers implements Default{
         protected displayStats: Special | undefined
     ){}
     private async displayData(): Promise<Array<string>> | undefined{
-        
+        const Data: Default = {
+            isDefault: true | undefined,
+            isPrivate: false | undefined,
+            isPermanent: true | undefined,
+            isMasterOrMain: 'master' | undefined,
+        }
         return new Promise((resolve, reject) => {
             setTimeout(() => resolve(this.AllUserNames), 1500);    
         })
     }
     protected callStats(): Array<Special> | Array<string> | null{
         console.log(`Displaying All <Protected> Data from ${NewUsers.ClassName} \n`);
-
+        const Data = await this.displayData();
+        console.log()
     }
 
 }
