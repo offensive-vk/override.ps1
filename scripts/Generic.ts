@@ -51,5 +51,7 @@ export interface Default {
 }
 
 export class NewUsers implements Default{
-    
+    constructor(
+        
+    ){}
 }
