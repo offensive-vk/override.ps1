@@ -37,3 +37,15 @@ export namespace Global {
         console.log(str);
     }
 }
+type Special = string & boolean;
+
+export interface Default {
+    isDefault?: boolean | undefined;
+    isPrivate?: boolean | undefined;
+    isPermanent?: boolean | undefined;
+    isMasterOrMain?: boolean | undefined;
+
+    AllUserNames: Array<string> | null;
+    displayStats: Special | undefined;
+
+}
