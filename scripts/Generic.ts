@@ -62,9 +62,12 @@ export class NewUsers implements Default{
         protected AllUserNames: Array<string> | null,
         protected displayStats: Special | undefined
     ){}
+    private async displayData(): Promise<Array<string>> | undefined{
+        
+    }
     protected callStats(): Array<Special> | Array<string> | null{
         console.log(`Displaying All <Protected> Data from ${NewUsers.ClassName} \n`);
-        
+
     }
 
 }
