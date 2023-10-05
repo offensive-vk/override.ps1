@@ -47,11 +47,17 @@ export interface Default {
 
     AllUserNames: Array<string> | null;
     displayStats: Special | undefined;
-
+    callStats
 }
 
 export class NewUsers implements Default{
     constructor(
-        
+        protected isDefault?: boolean | undefined,
+        protected isPrivate?: boolean | undefined,
+        protected isPermanent?: boolean | undefined,
+        protected isMasterOrMain?: boolean | undefined,
+        protected AllUserNames: Array<string> | null,
+        protected displayStats: Special | undefined
     ){}
+
 }
