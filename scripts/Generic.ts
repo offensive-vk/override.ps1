@@ -47,10 +47,11 @@ export interface Default {
 
     AllUserNames: Array<string> | null;
     displayStats: Special | undefined;
-    callStats
+    callStats(): Array<Special> | Array<string> | null;
 }
 
 export class NewUsers implements Default{
+    public static DefaulUserName: string | null;
     constructor(
         protected isDefault?: boolean | undefined,
         protected isPrivate?: boolean | undefined,
@@ -59,5 +60,8 @@ export class NewUsers implements Default{
         protected AllUserNames: Array<string> | null,
         protected displayStats: Special | undefined
     ){}
+    protected callStats(): Array<Special> | Array<string> | null{
+
+    }
 
 }
