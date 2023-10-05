@@ -49,3 +49,7 @@ export interface Default {
     displayStats: Special | undefined;
 
 }
+
+export class NewUsers implements Default{
+    
+}
