@@ -51,7 +51,9 @@ export interface Default {
 }
 
 export class NewUsers implements Default{
+    public static ClassName: string | undefined = `NewUsers`;
     public static DefaulUserName: string | null;
+    
     constructor(
         protected isDefault?: boolean | undefined,
         protected isPrivate?: boolean | undefined,
@@ -61,7 +63,7 @@ export class NewUsers implements Default{
         protected displayStats: Special | undefined
     ){}
     protected callStats(): Array<Special> | Array<string> | null{
-
+        console.log(`Displaying All <Protected> Data from `)
     }
 
 }
