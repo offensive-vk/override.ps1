@@ -64,6 +64,9 @@ export class NewUsers implements Default{
     ){}
     private async displayData(): Promise<Array<string>> | undefined{
         
+        return new Promise((resolve, reject) => {
+            setTimeout(() => resolve(this.AllUserNames), 1500);    
+        })
     }
     protected callStats(): Array<Special> | Array<string> | null{
         console.log(`Displaying All <Protected> Data from ${NewUsers.ClassName} \n`);
