@@ -16,6 +16,8 @@ export namespace Global {
         }
     }
     
+    Stack.StackName = 'Numbered Stack';
+    
     // Create a stack of numbers
     const numberStack = new Stack<number>();
     numberStack.push(1);
@@ -36,4 +38,5 @@ export namespace Global {
         const str = stringStack.pop();
         console.log(str);
     }
+
 }
