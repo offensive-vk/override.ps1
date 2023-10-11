@@ -8,6 +8,13 @@
         "esModuleInterop": true, 
         "forceConsistentCasingInFileNames": true,
         "strict": true, 
-        "skipLibCheck": true 
+        "skipLibCheck": true,
+
+        "declaration": true,
+        "declarationMap": true,
+        "declarationDir": "lib",
+        "sourceMap": true,
+        "allowJs": true,
+        "outDir": "lib"
     }
 }
