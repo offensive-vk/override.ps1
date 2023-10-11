@@ -33,3 +33,19 @@ declare class Stack<T>{
      */
     isEmpty(): boolean;
 }
+
+/**
+ * Logs a customized message to the console that looks like a info.
+ * @param args - An array of arguments that will be logged to the console.
+ */
+declare function info(...args: any[]): void;
+
+/**
+ * Logs a formatted message with timestamps to the console.
+ * 
+ * @param args An array of arguments that will be logged to the console.
+ * @example
+ * trace("This is a log message");
+ * // Logs: "YYYY-MM-DD HH:MM:SS.MMM AM/PM [info] >> [ 'This is a log message' ] << [info]"
+ */
+declare function trace(...args: any[]): void;

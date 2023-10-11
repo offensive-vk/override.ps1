@@ -1,9 +1,9 @@
-/* 
-*   @date: Oct 2 , 2023
-*   @author: Vedansh <admin@override.ps1>
-*   @description: Customized Functions for Special Use using TypeScript.
-*   @lang: TypeScript v 5.1.6
-*   @Copyright (c) Vedansh <admin>. All rights reserved.
+/**
+*  @year {2023}
+*  @author: Vedansh <admin@override.ps1>
+*  @description: Customized Functions for Special Use using TypeScript.
+*  @language: TypeScript v 5.1.6
+*  @copyright (c) Vedansh <admin>. All rights reserved.
 */
 /**
  * Logs a customized message to the console that looks like a info.
@@ -18,9 +18,9 @@ export function info(...args: any[]): void{
  * @param args An array of arguments that will be logged to the console.
  * @example
  * trace("This is a log message");
- * // Logs: "YYYY-MM-DD HH:MM:SS.MMM AM/PM [info] >> [ 'This is a log message' ] << [info]"
+ * Logs: "YYYY-MM-DD HH:MM:SS.MMM AM/PM [info] >> [ 'This is a log message' ] << [info]"
  */
-function trace(...args: any[]): void {
+export function trace(...args: any[]): void {
     const currentDate = new Date();
     const hours = currentDate.getHours() > 12 ? currentDate.getHours() - 12 : currentDate.getHours();
     const minutes = currentDate.getMinutes() < 10 ? `0${currentDate.getMinutes()}` : currentDate.getMinutes();
