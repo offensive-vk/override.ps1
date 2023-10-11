@@ -1,10 +1,12 @@
 {
   "name": "override.ps1",
   "version": "1.5.9",
-  "description": "Personal JS and TS Based Functions , For Private Use Only.",
-  "main": "lib/index.js",
+  "description": "Curated and Perfectly Created Functions for my awesome friends.",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "test": "null"
+    "build": "tsup index.ts --format cjs,esm --dts --sourcemap --dts-resolve"
   },
   "repository": {
     "type": "git",
