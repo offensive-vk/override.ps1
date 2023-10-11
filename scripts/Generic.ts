@@ -1,42 +1,32 @@
-export namespace Global {
-    class Stack<T> {
-        private elements: T[] = [];
-        public static StackName: string | undefined = '';
-    
-        push(element: T): void {
-            this.elements.push(element);
-        }
-    
-        pop(): T | undefined {
-            return this.elements.pop();
-        }
-    
-        isEmpty(): boolean {
-            return this.elements.length === 0;
-        }
-    }
-    
-    Stack.StackName = 'Numbered Stack';
-    
-    // Create a stack of numbers
-    const numberStack = new Stack<number>();
-    numberStack.push(1);
-    numberStack.push(2);
-    numberStack.push(3);
-    
-    while (!numberStack.isEmpty()) {
-        const num = numberStack.pop();
-        console.log(num);
-    }
-    
-    // Create a stack of strings
-    const stringStack = new Stack<string>();
-    stringStack.push("Hello");
-    stringStack.push("TypeScript");
-    
-    while (!stringStack.isEmpty()) {
-        const str = stringStack.pop();
-        console.log(str);
+/**
+ * Represents a stack data structure.
+ * @template T The type of elements in the stack.
+ */
+export class Stack<T> {
+    private elements: T[] = [];
+    static StackName: string = '';
+
+    /**
+     * Adds an element to the top of the stack.
+     * @param element The element to be added.
+     */
+    push(element: T): void {
+        this.elements.push(element);
     }
 
+    /**
+     * Removes and returns the element at the top of the stack, or returns `undefined` if the stack is empty.
+     * @returns The element at the top of the stack, or `undefined` if the stack is empty.
+     */
+    pop(): T | undefined {
+        return this.elements.pop();
+    }
+
+    /**
+     * Checks if the stack is empty.
+     * @returns `true` if the stack is empty, `false` otherwise.
+     */
+    isEmpty(): boolean {
+        return this.elements.length === 0;
+    }
 }
