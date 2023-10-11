@@ -1,8 +1,8 @@
 {
   "name": "override.ps1",
   "version": "1.5.9",
-  "description": "Personal JS and TS Based Functions , For Private Use only.",
-  "main": "index.ts",
+  "description": "Personal JS and TS Based Functions , For Private Use Only.",
+  "main": "lib/index.js",
   "scripts": {
     "test": "null"
   },

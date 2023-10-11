@@ -5,7 +5,7 @@
 *  @language: TypeScript v 5.1.6
 *  @copyright (c) Vedansh <admin>. All rights reserved.
 */
-/// <reference path="index.d.ts" />
+// <reference path="index.d.ts" />
 
 /**
  * Logs a customized message to the console that looks like a info.
