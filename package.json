@@ -2,7 +2,7 @@
   "name": "override.ps1",
   "version": "1.5.0",
   "description": "Personal JS and TS Based Functions , For Private Use only.",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
     "test": "null"
   },
