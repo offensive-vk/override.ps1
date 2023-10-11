@@ -1,5 +1,8 @@
 /** 
-* @copyright Copyright (c) by Vedansh <admin@override.ps1>. All rights reserved.
+ * @author Vedansh Khandelwal @year 2023 @package npm
+ * @copyright Copyright (c) by Vedansh <admin@override.ps1>. All rights reserved.
+ * @description Represents a stack data structure.
+ * @template T The type of elements in the stack.
 */
 declare class Stack<T>{
     /**  
