@@ -41,6 +41,15 @@ declare class Stack<T>{
 declare function info(...args: any[]): void;
 
 /**
+ * Generates a random player ID of length 10.
+ * @returns A promise that resolves to a string or void, or a string, or null.
+ * @example
+ * const playerId = generatePlayerId();
+ * console.log(playerId); // e.g. "AbC123xyz"
+ */
+declare function generatePlayerId(): Promise<string | void> | string | null;
+
+/**
  * Logs a formatted message with timestamps to the console.
  * 
  * @param args An array of arguments that will be logged to the console.
@@ -90,4 +99,9 @@ declare class Generic{
      * @returns A Promise that resolves to void.
      */
     public CreateKeyValuePair(key: any, value: any): Promise<void>;
+}
+
+declare class Cursed extends Generic {
+    constructor();
+
 }
