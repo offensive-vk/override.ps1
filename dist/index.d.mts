@@ -3,6 +3,7 @@
 *  @author: Vedansh <admin@override.ps1>
 *  @description: Customized Functions for Special Use using TypeScript.
 *  @language: TypeScript v 5.1.6
+*  @type {module}
 *  @copyright (c) Vedansh <admin>. All rights reserved.
 */
 /**
@@ -35,6 +36,14 @@ declare function generatePlayerId(): Promise<string | void> | string | null;
  */
 declare function handleError(test: () => void, ...args: any[]): void;
 /**
+ * @satisfies the following Generic class and its functions.
+ * @belongs to class and its subsidiary functions.
+ */
+interface KeyValuePair<K, V> {
+    key: K;
+    value: V;
+}
+/**
  * Creates a key-value pair using the provided key and value.
  * It is done via using Generic Programming.
  * @param key - The key for the key-value pair.
@@ -42,16 +51,36 @@ declare function handleError(test: () => void, ...args: any[]): void;
  * @returns A Promise that resolves to void.
  */
 declare function CreateKeyValuePair(key: any, value: any): Promise<void>;
-/**
- * Generates a random string of specified length, consisting of a combination of numbers and characters.
- * @param length - The length of the random string to be generated. Default value is 10.
- * @param numCount - The number of numeric characters to include in the random string. Default value is 7.
- * @param charCount - The number of non-numeric characters to include in the random string. Default value is 3.
- * @param useSymbols - Specifies whether to include symbols in the character pool. Default value is true.
- * @param useUppercase - Specifies whether to include uppercase letters in the character pool. Default value is true.
- * @param useLowercase - Specifies whether to include lowercase letters in the character pool. Default value is true.
- * @returns A randomly generated string of specified length, consisting of a combination of numbers and characters.
- */
-declare function CreateRandomString(length?: number, numCount?: number, charCount?: number, useSymbols?: boolean, useUppercase?: boolean, useLowercase?: boolean): string | null;
+declare class Cursed extends Generic {
+    constructor();
+    /**
+     * Generates a random string of specified length, consisting of a combination of numbers and characters.
+     * @param length - The length of the random string to be generated. Default value is 10.
+     * @param numCount - The number of numeric characters to include in the random string. Default value is 7.
+     * @param charCount - The number of non-numeric characters to include in the random string. Default value is 3.
+     * @param useSymbols - Specifies whether to include symbols in the character pool. Default value is true.
+     * @param useUppercase - Specifies whether to include uppercase letters in the character pool. Default value is true.
+     * @param useLowercase - Specifies whether to include lowercase letters in the character pool. Default value is true.
+     * @returns A randomly generated string of specified length, consisting of a combination of numbers and characters.
+     */
+    CreateRandomString(length?: number, numCount?: number, charCount?: number, useSymbols?: boolean, useUppercase?: boolean, useLowercase?: boolean): string | null;
+    /**
+     * Generates a string of characters based on the input parameters.
+     *
+     * @param useSymbols - Specifies whether to include symbols in the character pool.
+     * @param useUppercase - Specifies whether to include uppercase letters in the character pool.
+     * @param useLowercase - Specifies whether to include lowercase letters in the character pool.
+     * @returns A string of characters generated based on the input parameters.
+     */
+    generateCharacterPool(useSymbols: boolean, useUppercase: boolean, useLowercase: boolean): string;
+    /**
+     * Returns a random character from a given string of characters, with the option to convert uppercase characters to lowercase.
+     *
+     * @param characters - A string of characters from which a random character will be selected.
+     * @param useUppercase - A flag indicating whether uppercase characters should be used or not.
+     * @returns A single random character from the `characters` string, with the option to convert uppercase characters to lowercase.
+     */
+    getRandomCharacter(characters: string, useUppercase: boolean): string;
+}
 
-export { CreateKeyValuePair, CreateRandomString, generatePlayerId, handleError, info, trace };
+export { CreateKeyValuePair, Cursed, KeyValuePair, generatePlayerId, handleError, info, trace };
