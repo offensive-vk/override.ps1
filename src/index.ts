@@ -4,7 +4,7 @@
 *  @description: Customized Functions for Special Use using TypeScript.
 *  @language TypeScript v5.3.0 dev edition.
 *  @type {module}
-*  @copyright (c) Vedansh <admin>. All rights reserved.
+*  @copyright (c) override.ps1. All rights reserved.
 */
 // <reference path="index.d.ts" />
 
