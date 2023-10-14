@@ -117,10 +117,13 @@ export async function CreateKeyValuePair(key: any, value: any): Promise<void> {
     const pair = await createKeyValuePair<typeof key, typeof value>(key, value);
     console.log(`Created New KeyValuePair -> { ${pair.key} : ${pair.value} }\n`);
 }
-class Generic{}
+class Generic{
+    constructor(private username: string){}
+    rest(){}
+}
 export class Cursed extends Generic {
     constructor() {
-        super();
+        super('undefined');
     }
     /**
      * Generates a random string of specified length, consisting of a combination of numbers and characters.
