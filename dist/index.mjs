@@ -85,9 +85,16 @@ function CreateKeyValuePair(key, value) {
 `);
   });
 }
+var Generic = class {
+  constructor(username) {
+    this.username = username;
+  }
+  rest() {
+  }
+};
 var Cursed = class extends Generic {
   constructor() {
-    super();
+    super("undefined");
   }
   /**
    * Generates a random string of specified length, consisting of a combination of numbers and characters.

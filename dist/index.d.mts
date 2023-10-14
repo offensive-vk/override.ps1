@@ -1,10 +1,10 @@
 /**
 *  @year {2023}
-*  @author: Vedansh <admin@override.ps1>
+*  @author: Vedansh # <admin@override.ps1>
 *  @description: Customized Functions for Special Use using TypeScript.
-*  @language: TypeScript v 5.1.6
+*  @language TypeScript v5.3.0 dev edition.
 *  @type {module}
-*  @copyright (c) Vedansh <admin>. All rights reserved.
+*  @copyright (c) override.ps1. All rights reserved.
 */
 /**
  * Logs a customized message to the console that looks like a info.
@@ -51,6 +51,11 @@ interface KeyValuePair<K, V> {
  * @returns A Promise that resolves to void.
  */
 declare function CreateKeyValuePair(key: any, value: any): Promise<void>;
+declare class Generic {
+    private username;
+    constructor(username: string);
+    rest(): void;
+}
 declare class Cursed extends Generic {
     constructor();
     /**
