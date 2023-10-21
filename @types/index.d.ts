@@ -101,7 +101,7 @@ declare class Generic{
     public CreateKeyValuePair(key: any, value: any): Promise<void>;
 }
 
-declare class Cursed extends Generic {
+declare class CursedConstructor extends Generic {
     constructor();
     /**
      * Generates a random string of specified length, consisting of a combination of numbers and characters.
@@ -145,3 +145,9 @@ declare class Cursed extends Generic {
      */
     public getRandomCharacter(characters: string, useUppercase: boolean): string;
 }
+/**
+ * @var Cursed is the object of Cursed Constructor.
+ */
+declare var Cursed: CursedConstructor;
+
+/* EOF Reached. Good Luck*/
