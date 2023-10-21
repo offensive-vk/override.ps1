@@ -78,6 +78,39 @@ export function handleError(test: () => void, ...args: any[]): void {
     }
     return void (0);
 }
+/**
+ * Generates all possible permutations of an array without repetition.
+ * 
+ * @template T - The type of elements in the array.
+ * @param {T[]} arr - The input array for which permutations need to be generated.
+ * @returns {T[][]} - An array containing all possible permutations of the input array.
+ * @example
+ * const arr = [1, 2, 3];
+ * const result = Permute(arr);
+ * console.log(result);
+ * Output: [[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 2, 1], [3, 1, 2]]
+ */
+export function Permute<T>(arr: T[]): T[][] {
+    const result: T[][] = [];
+
+    function backtrack(start: number, current: T[]) {
+        if (start === arr.length) {
+            result.push([...current]);
+            return;
+        }
+
+        for (let i = start; i < arr.length; i++) {
+            [arr[start], arr[i]] = [arr[i], arr[start]]; // Swap elements
+            current.push(arr[start]);
+            backtrack(start + 1, current);
+            current.pop();
+            [arr[start], arr[i]] = [arr[i], arr[start]]; // Revert the swap
+        }
+    }
+    backtrack(0, []);
+    return result;
+}
+
 /** 
  * @satisfies the following Generic class and its functions.
  * @belongs to class and its subsidiary functions.
@@ -117,11 +150,11 @@ export async function CreateKeyValuePair(key: any, value: any): Promise<void> {
     const pair = await createKeyValuePair<typeof key, typeof value>(key, value);
     console.log(`Created New KeyValuePair -> { ${pair.key} : ${pair.value} }\n`);
 }
-class Generic{
+class Generic {
     constructor(private username: string){}
     rest(){}
 }
-export class Cursed extends Generic {
+export class CursedConstructor extends Generic {
     constructor() {
         super('undefined');
     }
@@ -205,4 +238,11 @@ export class Cursed extends Generic {
         return randomChar;
     }
 }
+/**
+ * @author Vedansh Khandelwal
+ * @lang TypeScript (ES6+)
+ * @class Cursed for most of my perfect methods.
+ * @readonly No Changes Should be made to this class.
+ */
+export var Cursed: CursedConstructor;
 /* EOF Reached */
