@@ -36,6 +36,19 @@ declare function generatePlayerId(): Promise<string | void> | string | null;
  */
 declare function handleError(test: () => void, ...args: any[]): void;
 /**
+ * Generates all possible permutations of an array without repetition.
+ *
+ * @template T - The type of elements in the array.
+ * @param {T[]} arr - The input array for which permutations need to be generated.
+ * @returns {T[][]} - An array containing all possible permutations of the input array.
+ * @example
+ * const arr = [1, 2, 3];
+ * const result = Permute(arr);
+ * console.log(result);
+ * Output: [[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 2, 1], [3, 1, 2]]
+ */
+declare function Permute<T>(arr: T[]): T[][];
+/**
  * @satisfies the following Generic class and its functions.
  * @belongs to class and its subsidiary functions.
  */
@@ -56,7 +69,7 @@ declare class Generic {
     constructor(username: string);
     rest(): void;
 }
-declare class Cursed extends Generic {
+declare class CursedConstructor extends Generic {
     constructor();
     /**
      * Generates a random string of specified length, consisting of a combination of numbers and characters.
@@ -87,5 +100,12 @@ declare class Cursed extends Generic {
      */
     getRandomCharacter(characters: string, useUppercase: boolean): string;
 }
+/**
+ * @author Vedansh Khandelwal
+ * @lang TypeScript (ES6+)
+ * @class Cursed for most of my perfect methods.
+ * @readonly No Changes Should be made to this class.
+ */
+declare var Cursed: CursedConstructor;
 
-export { CreateKeyValuePair, Cursed, KeyValuePair, generatePlayerId, handleError, info, trace };
+export { CreateKeyValuePair, Cursed, CursedConstructor, KeyValuePair, Permute, generatePlayerId, handleError, info, trace };

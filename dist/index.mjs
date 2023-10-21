@@ -69,6 +69,24 @@ function handleError(test, ...args) {
   }
   return void 0;
 }
+function Permute(arr) {
+  const result = [];
+  function backtrack(start, current) {
+    if (start === arr.length) {
+      result.push([...current]);
+      return;
+    }
+    for (let i = start; i < arr.length; i++) {
+      [arr[start], arr[i]] = [arr[i], arr[start]];
+      current.push(arr[start]);
+      backtrack(start + 1, current);
+      current.pop();
+      [arr[start], arr[i]] = [arr[i], arr[start]];
+    }
+  }
+  backtrack(0, []);
+  return result;
+}
 function createKeyValuePair(key, value) {
   return __async(this, null, function* () {
     return new Promise((resolve) => {
@@ -92,7 +110,7 @@ var Generic = class {
   rest() {
   }
 };
-var Cursed = class extends Generic {
+var CursedConstructor = class extends Generic {
   constructor() {
     super("undefined");
   }
@@ -157,9 +175,12 @@ var Cursed = class extends Generic {
     return randomChar;
   }
 };
+var Cursed;
 export {
   CreateKeyValuePair,
   Cursed,
+  CursedConstructor,
+  Permute,
   generatePlayerId,
   handleError,
   info,
