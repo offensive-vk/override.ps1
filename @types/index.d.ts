@@ -147,7 +147,8 @@ declare class CursedConstructor extends Generic {
 }
 /**
  * @var Cursed is the object of Cursed Constructor.
+ * @description Your Life is now cursed. Good Luck.
  */
 declare var Cursed: CursedConstructor;
 
-/* EOF Reached. Good Luck*/
+/* EOF Reached. Good Luck */
