@@ -75,7 +75,7 @@ declare interface KeyValuePair<K, V> {
     key: K;
     value: V;
 }
-declare class Generic{
+declare class GenericConstructor{
     constructor();
     /**
      * Generic function to create a KeyValuePair asynchronously.
@@ -101,7 +101,7 @@ declare class Generic{
     public CreateKeyValuePair(key: any, value: any): Promise<void>;
 }
 
-declare class CursedConstructor extends Generic {
+declare class CursedConstructor extends GenericConstructor {
     constructor();
     /**
      * Generates a random string of specified length, consisting of a combination of numbers and characters.
@@ -150,5 +150,6 @@ declare class CursedConstructor extends Generic {
  * @description Your Life is now cursed. Good Luck.
  */
 declare var Cursed: CursedConstructor;
+declare var Generic: GenericConstructor;
 
 /* EOF Reached. Good Luck */
