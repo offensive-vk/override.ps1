@@ -59,6 +59,10 @@ interface KeyValuePair<K, V> {
  * @returns A Promise that resolves to void.
  */
 declare function CreateKeyValuePair(key: any, value: any): Promise<void>;
+/**
+ * @since v.1.7.0
+ * @readonly
+ */
 declare class Generic {
     private username;
     constructor(username: string);

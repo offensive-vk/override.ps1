@@ -160,6 +160,10 @@ export async function CreateKeyValuePair(key: any, value: any): Promise<void> {
     const pair = await createKeyValuePair<typeof key, typeof value>(key, value);
     console.log(`Created New KeyValuePair -> { ${pair.key} : ${pair.value} }\n`);
 }
+/**
+ * @since v.1.7.0
+ * @readonly
+ */
 class Generic {
     constructor(private username: string){}
     public rest(){
