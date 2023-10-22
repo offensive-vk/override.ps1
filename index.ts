@@ -80,35 +80,45 @@ export function handleError(test: () => void, ...args: any[]): void {
 }
 /**
  * Generates all possible permutations of an array without repetition.
- * 
  * @template T - The type of elements in the array.
  * @param {T[]} arr - The input array for which permutations need to be generated.
- * @returns {T[][]} - An array containing all possible permutations of the input array.
- * @example
- * const arr = [1, 2, 3];
- * const result = Permute(arr);
- * console.log(result);
- * Output: [[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 2, 1], [3, 1, 2]]
+ * @var count Stores total number of permutations generated.
+ * @returns {T[]} - An array containing all possible permutations of the input array.
  */
 export function Permute<T>(arr: T[]): T[][] {
     const result: T[][] = [];
+    let count = 0;
 
     function backtrack(start: number, current: T[]) {
         if (start === arr.length) {
             result.push([...current]);
+            count++;
             return;
         }
 
         for (let i = start; i < arr.length; i++) {
-            [arr[start], arr[i]] = [arr[i], arr[start]]; // Swap elements
+            Swap(arr, start, i);
             current.push(arr[start]);
             backtrack(start + 1, current);
             current.pop();
-            [arr[start], arr[i]] = [arr[i], arr[start]]; // Revert the swap
+            Swap(arr, start, i);
         }
     }
     backtrack(0, []);
+    console.log(`[ Total Possible Combinations: ${count} ]\n`);
     return result;
+}
+
+/**
+ * Swaps two elements in an array.
+ * 
+ * @template T - The type of elements in the array.
+ * @param {T[]} arr - The array in which elements need to be swapped.
+ * @param {number} i - The index of the first element to be swapped.
+ * @param {number} j - The index of the second element to be swapped.
+ */
+function Swap<T>(arr: T[], i: number, j: number) {
+    [arr[i], arr[j]] = [arr[j], arr[i]];
 }
 
 /** 
@@ -152,9 +162,17 @@ export async function CreateKeyValuePair(key: any, value: any): Promise<void> {
 }
 class Generic {
     constructor(private username: string){}
-    rest(){}
+    public rest(){
+        setTimeout(() => {
+            console.log(`Chill Out....`);
+        }, 1200);
+    }
 }
-export class CursedConstructor extends Generic {
+class CursedConstructor extends Generic {
+    /**
+     * @constructor for Cursed Class.
+     * @since v.1.7.0
+     */
     constructor() {
         super('undefined');
     }
