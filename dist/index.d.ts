@@ -37,15 +37,10 @@ declare function generatePlayerId(): Promise<string | void> | string | null;
 declare function handleError(test: () => void, ...args: any[]): void;
 /**
  * Generates all possible permutations of an array without repetition.
- *
  * @template T - The type of elements in the array.
  * @param {T[]} arr - The input array for which permutations need to be generated.
- * @returns {T[][]} - An array containing all possible permutations of the input array.
- * @example
- * const arr = [1, 2, 3];
- * const result = Permute(arr);
- * console.log(result);
- * Output: [[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 2, 1], [3, 1, 2]]
+ * @var count Stores total number of permutations generated.
+ * @returns {T[]} - An array containing all possible permutations of the input array.
  */
 declare function Permute<T>(arr: T[]): T[][];
 /**
@@ -70,6 +65,10 @@ declare class Generic {
     rest(): void;
 }
 declare class CursedConstructor extends Generic {
+    /**
+     * @constructor for Cursed Class.
+     * @since v.1.7.0
+     */
     constructor();
     /**
      * Generates a random string of specified length, consisting of a combination of numbers and characters.
@@ -108,4 +107,4 @@ declare class CursedConstructor extends Generic {
  */
 declare var Cursed: CursedConstructor;
 
-export { CreateKeyValuePair, Cursed, CursedConstructor, KeyValuePair, Permute, generatePlayerId, handleError, info, trace };
+export { CreateKeyValuePair, Cursed, KeyValuePair, Permute, generatePlayerId, handleError, info, trace };

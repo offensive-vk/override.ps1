@@ -71,21 +71,28 @@ function handleError(test, ...args) {
 }
 function Permute(arr) {
   const result = [];
+  let count = 0;
   function backtrack(start, current) {
     if (start === arr.length) {
       result.push([...current]);
+      count++;
       return;
     }
     for (let i = start; i < arr.length; i++) {
-      [arr[start], arr[i]] = [arr[i], arr[start]];
+      Swap(arr, start, i);
       current.push(arr[start]);
       backtrack(start + 1, current);
       current.pop();
-      [arr[start], arr[i]] = [arr[i], arr[start]];
+      Swap(arr, start, i);
     }
   }
   backtrack(0, []);
+  console.log(`[ Total Possible Combinations: ${count} ]
+`);
   return result;
+}
+function Swap(arr, i, j) {
+  [arr[i], arr[j]] = [arr[j], arr[i]];
 }
 function createKeyValuePair(key, value) {
   return __async(this, null, function* () {
@@ -103,83 +110,10 @@ function CreateKeyValuePair(key, value) {
 `);
   });
 }
-var Generic = class {
-  constructor(username) {
-    this.username = username;
-  }
-  rest() {
-  }
-};
-var CursedConstructor = class extends Generic {
-  constructor() {
-    super("undefined");
-  }
-  /**
-   * Generates a random string of specified length, consisting of a combination of numbers and characters.
-   * @param length - The length of the random string to be generated. Default value is 10.
-   * @param numCount - The number of numeric characters to include in the random string. Default value is 7.
-   * @param charCount - The number of non-numeric characters to include in the random string. Default value is 3.
-   * @param useSymbols - Specifies whether to include symbols in the character pool. Default value is true.
-   * @param useUppercase - Specifies whether to include uppercase letters in the character pool. Default value is true.
-   * @param useLowercase - Specifies whether to include lowercase letters in the character pool. Default value is true.
-   * @returns A randomly generated string of specified length, consisting of a combination of numbers and characters.
-   */
-  CreateRandomString(length = 10, numCount = 7, charCount = 3, useSymbols = true, useUppercase = true, useLowercase = true) {
-    const characters = this.generateCharacterPool(useSymbols, useUppercase, useLowercase);
-    let result = "";
-    for (let i = 0; i < length; i++) {
-      if ((numCount > 0 || charCount > 0) && (numCount === 0 || charCount === 0 && Math.random() < 0.5)) {
-        result += this.getRandomCharacter(characters, useUppercase);
-        charCount--;
-      } else {
-        result += this.getRandomCharacter("0123456789", false);
-        numCount--;
-      }
-    }
-    return result ? result : null;
-  }
-  /**
-   * Generates a string of characters based on the input parameters.
-   * 
-   * @param useSymbols - Specifies whether to include symbols in the character pool.
-   * @param useUppercase - Specifies whether to include uppercase letters in the character pool.
-   * @param useLowercase - Specifies whether to include lowercase letters in the character pool.
-   * @returns A string of characters generated based on the input parameters.
-   */
-  generateCharacterPool(useSymbols, useUppercase, useLowercase) {
-    let characters = "0123456789";
-    if (useSymbols) {
-      characters += "!@#$%^&*";
-    }
-    if (useUppercase) {
-      characters += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    }
-    if (useLowercase) {
-      characters += "abcdefghijklmnopqrstuvwxyz";
-    }
-    return characters;
-  }
-  /**
-   * Returns a random character from a given string of characters, with the option to convert uppercase characters to lowercase.
-   * 
-   * @param characters - A string of characters from which a random character will be selected.
-   * @param useUppercase - A flag indicating whether uppercase characters should be used or not.
-   * @returns A single random character from the `characters` string, with the option to convert uppercase characters to lowercase.
-   */
-  getRandomCharacter(characters, useUppercase) {
-    const randomIndex = Math.floor(Math.random() * characters.length);
-    const randomChar = characters.charAt(randomIndex);
-    if (!useUppercase && /[A-Z]/.test(randomChar)) {
-      return randomChar.toLowerCase();
-    }
-    return randomChar;
-  }
-};
 var Cursed;
 export {
   CreateKeyValuePair,
   Cursed,
-  CursedConstructor,
   Permute,
   generatePlayerId,
   handleError,
