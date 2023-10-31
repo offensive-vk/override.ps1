@@ -168,6 +168,7 @@ export async function CreateKeyValuePair(key: any, value: any): Promise<void> {
  * @param {T} obj - The object to update.
  * @param {K} prop - The property of the object to append the string to.
  * @param {string} appendString - The string to append to the property.
+ * @since v1.7.2
  * @returns {T} - The updated object with the string appended to the specified property.
  */
 function appendDataToProperty<T, K extends keyof T>(obj: T, prop: K, append: any | string): T {
@@ -181,10 +182,20 @@ function appendDataToProperty<T, K extends keyof T>(obj: T, prop: K, append: any
  */
 class Generic {
     constructor(private username: string){}
-    public rest(){
+    /**
+     * @description Another Goofy Function lol.
+     * @function pauses the execution for few seconds.
+     * @returns void
+     */
+    public rest(): void {
+        const minTimeout = 1200; // 1.2 seconds in milliseconds
+        const maxTimeout = 2200; // 2.2 seconds in milliseconds
+        
+        const randomTimeout = Math.random() * (maxTimeout - minTimeout) + minTimeout;
+        
         setTimeout(() => {
             console.log(`Chill Out....`);
-        }, 1200);
+        }, randomTimeout);
     }
 }
 class CursedConstructor extends Generic {
