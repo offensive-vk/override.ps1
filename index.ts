@@ -117,7 +117,7 @@ export function Permute<T>(arr: T[]): T[][] {
  * @param {number} i - The index of the first element to be swapped.
  * @param {number} j - The index of the second element to be swapped.
  */
-function Swap<T>(arr: T[], i: number, j: number) {
+export function Swap<T>(arr: T[], i: number, j: number) {
     [arr[i], arr[j]] = [arr[j], arr[i]];
 }
 
