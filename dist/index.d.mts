@@ -44,6 +44,15 @@ declare function handleError(test: () => void, ...args: any[]): void;
  */
 declare function Permute<T>(arr: T[]): T[][];
 /**
+ * Swaps two elements in an array.
+ *
+ * @template T - The type of elements in the array.
+ * @param {T[]} arr - The array in which elements need to be swapped.
+ * @param {number} i - The index of the first element to be swapped.
+ * @param {number} j - The index of the second element to be swapped.
+ */
+declare function Swap<T>(arr: T[], i: number, j: number): void;
+/**
  * @satisfies the following Generic class and its functions.
  * @belongs to class and its subsidiary functions.
  */
@@ -60,12 +69,29 @@ interface KeyValuePair<K, V> {
  */
 declare function CreateKeyValuePair(key: any, value: any): Promise<void>;
 /**
+ * Appends a string to a property of an object and returns the updated object.
+ *
+ * @template T - The type of the object.
+ * @template K - The type of the property.
+ * @param {T} obj - The object to update.
+ * @param {K} prop - The property of the object to append the string to.
+ * @param {string} appendString - The string to append to the property.
+ * @since v1.7.2
+ * @returns {T} - The updated object with the string appended to the specified property.
+ */
+declare function appendDataToProperty<T, K extends keyof T>(obj: T, prop: K, append: any | string): T;
+/**
  * @since v.1.7.0
  * @readonly
  */
 declare class Generic {
     private username;
     constructor(username: string);
+    /**
+     * @description Another Goofy Function lol.
+     * @function pauses the execution for few seconds.
+     * @returns void
+     */
     rest(): void;
 }
 declare class CursedConstructor extends Generic {
@@ -111,4 +137,4 @@ declare class CursedConstructor extends Generic {
  */
 declare var Cursed: CursedConstructor;
 
-export { CreateKeyValuePair, Cursed, KeyValuePair, Permute, generatePlayerId, handleError, info, trace };
+export { CreateKeyValuePair, Cursed, KeyValuePair, Permute, Swap, appendDataToProperty, generatePlayerId, handleError, info, trace };

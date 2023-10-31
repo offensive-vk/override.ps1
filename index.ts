@@ -171,7 +171,7 @@ export async function CreateKeyValuePair(key: any, value: any): Promise<void> {
  * @since v1.7.2
  * @returns {T} - The updated object with the string appended to the specified property.
  */
-function appendDataToProperty<T, K extends keyof T>(obj: T, prop: K, append: any | string): T {
+export function appendDataToProperty<T, K extends keyof T>(obj: T, prop: K, append: any | string): T {
     const updatedObj = { ...obj };
     updatedObj[prop] = updatedObj[prop] + append as T[K];
     return updatedObj;
@@ -293,4 +293,5 @@ class CursedConstructor extends Generic {
  * @readonly No Changes Should be made to this class.
  */
 export var Cursed: CursedConstructor;
+
 /* EOF Reached */
