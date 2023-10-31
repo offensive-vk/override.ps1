@@ -33,6 +33,17 @@ declare class Stack<T>{
      */
     isEmpty(): boolean;
 }
+/**
+ * Appends a string to a property of an object and returns the updated object.
+ * 
+ * @template T - The type of the object.
+ * @template K - The type of the property.
+ * @param {T} obj - The object to update.
+ * @param {K} prop - The property of the object to append the string to.
+ * @param {string} appendString - The string to append to the property.
+ * @returns {T} - The updated object with the string appended to the specified property.
+ */
+function appendDataToProperty<T, K extends keyof T>(obj: T, prop: K, append: any | string): T;
 
 /**
  * Logs a customized message to the console that looks like a info.
