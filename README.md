@@ -7,6 +7,29 @@ const over = require('override.ps1');
 over.info("This is a log message");
 var id = over.generatePlayerId();
 over.info(id);
+
+// Creates Key Value Pair and Prints them
+over.CreateKeyValuePair("userid", 10002);
+
+```
+
+## Usage in TypeScript:
+```typescript
+import * as over from 'override.ps1';
+
+// stdout to console.
+over.trace("This is a trace message.");
+
+// If you prefer Generic Programming.
+const A = [2, 5, 6];
+const R = over.Permute<number>(A);
+
+over.trace("All Permutations: ");
+R.forEach((permutation) => {
+    console.log(permutation);
+});
+
+over.trace(" == End of Script == ");
 ```
 
 # TypeScript vs. JavaScript
