@@ -77,7 +77,21 @@ declare function trace(...args: any[]): void;
  * @returns void
  */
 declare function handleError(test: () => void, ...args: any[]): void;
-
+/**
+ * Retrieves the value corresponding to a specified key from an object.
+ * If the key does not exist in the object, it returns the key itself.
+ * @author Vedansh ✨.
+ * @template TObj - The type of the object.
+ * @template TKey - The type of the key.
+ * @param {TObj} obj - The object from which to retrieve the value.
+ * @param {TKey} key - The key to check and retrieve the value for.
+ * @param {...TKey[]} args - Additional keys to check and retrieve the values for.
+ * @returns {TKey | TObj[TKey]} - The value corresponding to the specified key if it exists in the object,
+ * otherwise the key itself.
+ */
+declare function getValue<TObj, TKey extends keyof TObj>(
+    obj: TObj, key: TKey, ...args: Array<TKey>
+): TKey | TObj[TKey] ;
 /** 
  * @satisfies the following Generic class and its functions.
  * @belongs to class and its subsidiary functions.
