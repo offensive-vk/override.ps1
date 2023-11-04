@@ -157,20 +157,15 @@ function getValue(obj, key, ...args) {
   }
   return obj[key];
 }
-function createKeyValuePair(key, value) {
+function CreateKeyValuePair(key, value) {
   return __async(this, null, function* () {
+    console.log(`Created New KeyValuePair -> { ${key} : ${value} }
+`);
     return new Promise((resolve) => {
       setTimeout(() => {
         resolve({ key, value });
-      }, 2e3);
+      }, 1500);
     });
-  });
-}
-function CreateKeyValuePair(key, value) {
-  return __async(this, null, function* () {
-    const pair = yield createKeyValuePair(key, value);
-    console.log(`Created New KeyValuePair -> { ${pair.key} : ${pair.value} }
-`);
   });
 }
 function appendDataToProperty(obj, prop, append) {
