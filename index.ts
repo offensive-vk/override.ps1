@@ -4,6 +4,8 @@
 *  @description: Customized Functions for Special Use using TypeScript.
 *  @language TypeScript v5.3.0 dev edition.
 *  @type {module}
+*  @see {https://github.com/offensive-vk/override.ps1#readme} for details.
+*  @readonly Module , Please don't modify this file.
 *  @copyright (c) override.ps1. All rights reserved.
 */
 // <reference path="index.d.ts" />
@@ -172,10 +174,13 @@ export interface KeyValuePair<K, V> {
  */
 export async function CreateKeyValuePair<K, V>(key: K, value: V): Promise<KeyValuePair<K, V>> {
     console.log(`Created New KeyValuePair -> { ${key} : ${value} }\n`);
-    return new Promise((resolve) => {
+    return new Promise<KeyValuePair<K,V>>((resolve) => {
         setTimeout(() => {
             resolve({ key, value });
         }, 1500);
+    }).then(result => {
+        console.log(result);
+        return result;
     });
 }
 
