@@ -1,7 +1,7 @@
 {
   "name": "override.ps1",
-  "version": "1.7.5",
-  "description": "Curated and Perfectly Created Functions for my awesome friends.",
+  "version": "1.7.9",
+  "description": "Beautifully Designed and Well Balanced Collection of Various Functions. ",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
@@ -13,6 +13,10 @@
     "url": "git+https://github.com/offensive-vk/override.ps1.git"
   },
   "keywords": [
+    "MJS",
+    "MTS",
+    "CTS",
+    "CJS",
     "JSX",
     "TSX",
     "JS",

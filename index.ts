@@ -4,6 +4,8 @@
 *  @description: Customized Functions for Special Use using TypeScript.
 *  @language TypeScript v5.3.0 dev edition.
 *  @type {module}
+*  @see {https://github.com/offensive-vk/override.ps1#readme} for details.
+*  @readonly Module , Please don't modify this file.
 *  @copyright (c) override.ps1. All rights reserved.
 */
 // <reference path="index.d.ts" />
@@ -121,6 +123,34 @@ export function Swap<T>(arr: T[], i: number, j: number) {
     [arr[i], arr[j]] = [arr[j], arr[i]];
 }
 
+/**
+ * Retrieves the value corresponding to a specified key from an object.
+ * If the key does not exist in the object, it returns the key itself.
+ * @author Vedansh ✨.
+ * @template TObj - The type of the object.
+ * @template TKey - The type of the key.
+ * @param {TObj} obj - The object from which to retrieve the value.
+ * @param {TKey} key - The key to check and retrieve the value for.
+ * @param {...TKey[]} args - Additional keys to check and retrieve the values for.
+ * @returns {TKey | TObj[TKey]} - The value corresponding to the specified key if it exists in the object,
+ * otherwise the key itself.
+ */
+
+export function getValue<TObj, TKey extends keyof TObj>(
+        obj: TObj, key: TKey, ...args: Array<TKey>
+    ): TKey | TObj[TKey] {
+    if (!obj?.hasOwnProperty(key)) {
+        console.log(`Error ! The Object Doesn't Consist The Key: ${key as string}\n`);
+        return key;
+    }
+    for (const arg of args) {
+        if (!obj.hasOwnProperty(arg)) {
+            console.log(`OOPS ! The Object Doesn't Consist The Key: ${arg as string}\n`);
+            return arg;
+        }
+    }
+    return obj[key] as TKey | TObj[TKey];
+}
 /** 
  * @satisfies the following Generic class and its functions.
  * @belongs to class and its subsidiary functions.
@@ -142,24 +172,18 @@ export interface KeyValuePair<K, V> {
  * const stringBooleanPair = await createKeyValuePair<string, boolean>("isTrue", true);
  * stringBooleanPair is { key: "isTrue", value: true }
  */
-async function createKeyValuePair<K, V>(key: K, value: V): Promise<KeyValuePair<K, V>> {
-    return new Promise((resolve) => {
+export async function CreateKeyValuePair<K, V>(key: K, value: V): Promise<KeyValuePair<K, V>> {
+    console.log(`Created New KeyValuePair -> { ${key} : ${value} }\n`);
+    return new Promise<KeyValuePair<K,V>>((resolve) => {
         setTimeout(() => {
             resolve({ key, value });
-        }, 2000);
+        }, 1500);
+    }).then(result => {
+        console.log(result);
+        return result;
     });
 }
-/**
- * Creates a key-value pair using the provided key and value.
- * It is done via using Generic Programming.
- * @param key - The key for the key-value pair.
- * @param value - The value for the key-value pair.
- * @returns A Promise that resolves to void.
- */
-export async function CreateKeyValuePair(key: any, value: any): Promise<void> {
-    const pair = await createKeyValuePair<typeof key, typeof value>(key, value);
-    console.log(`Created New KeyValuePair -> { ${pair.key} : ${pair.value} }\n`);
-}
+
 /**
  * Appends a string to a property of an object and returns the updated object.
  * 
@@ -285,13 +309,92 @@ class CursedConstructor extends Generic {
         }
         return randomChar;
     }
+} /**@class Cursed End */
+/**
+ * Generates a random string of specified length, consisting of a combination of numbers and characters.
+ * @param length - The length of the random string to be generated. Default value is 10.
+ * @param numCount - The number of numeric characters to include in the random string. Default value is 7.
+ * @param charCount - The number of non-numeric characters to include in the random string. Default value is 3.
+ * @param useSymbols - Specifies whether to include symbols in the character pool. Default value is true.
+ * @param useUppercase - Specifies whether to include uppercase letters in the character pool. Default value is true.
+ * @param useLowercase - Specifies whether to include lowercase letters in the character pool. Default value is true.
+ * @returns A randomly generated string of specified length, consisting of a combination of numbers and characters.
+ */
+export function CreateRandomString(
+    length: number = 10,
+    numCount: number = 7,
+    charCount: number = 3,
+    useSymbols: boolean = true,
+    useUppercase: boolean = true,
+    useLowercase: boolean = true
+): string | null {
+
+    const characters = generateCharacterPool(useSymbols, useUppercase, useLowercase);
+    let result = '';
+
+    for (let i = 0; i < length; i++) {
+        if (
+            (numCount > 0 || charCount > 0) &&
+            (numCount === 0 || (charCount === 0 && Math.random() < 0.5))
+        ) {
+                result += getRandomCharacter(characters, useUppercase);
+                charCount--;
+            } else {
+                result += getRandomCharacter('0123456789', false);
+                numCount--;
+            }
+        }
+
+        return result ? result : null;
 }
+
+/**
+ * Generates a string of characters based on the input parameters.
+ * 
+ * @param useSymbols - Specifies whether to include symbols in the character pool.
+ * @param useUppercase - Specifies whether to include uppercase letters in the character pool.
+ * @param useLowercase - Specifies whether to include lowercase letters in the character pool.
+ * @returns A string of characters generated based on the input parameters.
+ */
+export function generateCharacterPool(
+    useSymbols: boolean,
+    useUppercase: boolean,
+    useLowercase: boolean
+): string {
+    let characters = '0123456789';
+    if (useSymbols) {
+        characters += '!@#$%^&*';
+    }
+    if (useUppercase) {
+        characters += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    }
+    if (useLowercase) {
+        characters += 'abcdefghijklmnopqrstuvwxyz';
+    }
+    return characters;
+}
+
+/**
+ * Returns a random character from a given string of characters, with the option to convert uppercase characters to lowercase.
+ * 
+ * @param characters - A string of characters from which a random character will be selected.
+ * @param useUppercase - A flag indicating whether uppercase characters should be used or not.
+ * @returns A single random character from the `characters` string, with the option to convert uppercase characters to lowercase.
+ */
+export function getRandomCharacter(characters: string, useUppercase: boolean): string {
+    const randomIndex = Math.floor(Math.random() * characters.length);
+    const randomChar = characters.charAt(randomIndex);
+    if (!useUppercase && /[A-Z]/.test(randomChar)) {
+        return randomChar.toLowerCase();
+    }
+    return randomChar;
+}
+
 /**
  * @author Vedansh Khandelwal
  * @lang TypeScript (ES6+)
  * @class Cursed for most of my perfect methods.
  * @readonly No Changes Should be made to this class.
  */
-export var Cursed: CursedConstructor;
 
 /* EOF Reached */

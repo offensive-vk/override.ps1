@@ -55,11 +55,14 @@ var __async = (__this, __arguments, generator) => {
 var override_exports = {};
 __export(override_exports, {
   CreateKeyValuePair: () => CreateKeyValuePair,
-  Cursed: () => Cursed,
+  CreateRandomString: () => CreateRandomString,
   Permute: () => Permute,
   Swap: () => Swap,
   appendDataToProperty: () => appendDataToProperty,
+  generateCharacterPool: () => generateCharacterPool,
   generatePlayerId: () => generatePlayerId,
+  getRandomCharacter: () => getRandomCharacter,
+  getValue: () => getValue,
   handleError: () => handleError,
   info: () => info,
   trace: () => trace
@@ -139,20 +142,33 @@ function Permute(arr) {
 function Swap(arr, i, j) {
   [arr[i], arr[j]] = [arr[j], arr[i]];
 }
-function createKeyValuePair(key, value) {
-  return __async(this, null, function* () {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve({ key, value });
-      }, 2e3);
-    });
-  });
+function getValue(obj, key, ...args) {
+  if (!(obj == null ? void 0 : obj.hasOwnProperty(key))) {
+    console.log(`Error ! The Object Doesn't Consist The Key: ${key}
+`);
+    return key;
+  }
+  for (const arg of args) {
+    if (!obj.hasOwnProperty(arg)) {
+      console.log(`OOPS ! The Object Doesn't Consist The Key: ${arg}
+`);
+      return arg;
+    }
+  }
+  return obj[key];
 }
 function CreateKeyValuePair(key, value) {
   return __async(this, null, function* () {
-    const pair = yield createKeyValuePair(key, value);
-    console.log(`Created New KeyValuePair -> { ${pair.key} : ${pair.value} }
+    console.log(`Created New KeyValuePair -> { ${key} : ${value} }
 `);
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve({ key, value });
+      }, 1500);
+    }).then((result) => {
+      console.log(result);
+      return result;
+    });
   });
 }
 function appendDataToProperty(obj, prop, append) {
@@ -160,15 +176,52 @@ function appendDataToProperty(obj, prop, append) {
   updatedObj[prop] = updatedObj[prop] + append;
   return updatedObj;
 }
-var Cursed;
+function CreateRandomString(length = 10, numCount = 7, charCount = 3, useSymbols = true, useUppercase = true, useLowercase = true) {
+  const characters = generateCharacterPool(useSymbols, useUppercase, useLowercase);
+  let result = "";
+  for (let i = 0; i < length; i++) {
+    if ((numCount > 0 || charCount > 0) && (numCount === 0 || charCount === 0 && Math.random() < 0.5)) {
+      result += getRandomCharacter(characters, useUppercase);
+      charCount--;
+    } else {
+      result += getRandomCharacter("0123456789", false);
+      numCount--;
+    }
+  }
+  return result ? result : null;
+}
+function generateCharacterPool(useSymbols, useUppercase, useLowercase) {
+  let characters = "0123456789";
+  if (useSymbols) {
+    characters += "!@#$%^&*";
+  }
+  if (useUppercase) {
+    characters += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  }
+  if (useLowercase) {
+    characters += "abcdefghijklmnopqrstuvwxyz";
+  }
+  return characters;
+}
+function getRandomCharacter(characters, useUppercase) {
+  const randomIndex = Math.floor(Math.random() * characters.length);
+  const randomChar = characters.charAt(randomIndex);
+  if (!useUppercase && /[A-Z]/.test(randomChar)) {
+    return randomChar.toLowerCase();
+  }
+  return randomChar;
+}
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
   CreateKeyValuePair,
-  Cursed,
+  CreateRandomString,
   Permute,
   Swap,
   appendDataToProperty,
+  generateCharacterPool,
   generatePlayerId,
+  getRandomCharacter,
+  getValue,
   handleError,
   info,
   trace
