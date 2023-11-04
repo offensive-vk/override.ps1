@@ -312,13 +312,92 @@ class CursedConstructor extends Generic {
         }
         return randomChar;
     }
+} /**@class Cursed End */
+/**
+ * Generates a random string of specified length, consisting of a combination of numbers and characters.
+ * @param length - The length of the random string to be generated. Default value is 10.
+ * @param numCount - The number of numeric characters to include in the random string. Default value is 7.
+ * @param charCount - The number of non-numeric characters to include in the random string. Default value is 3.
+ * @param useSymbols - Specifies whether to include symbols in the character pool. Default value is true.
+ * @param useUppercase - Specifies whether to include uppercase letters in the character pool. Default value is true.
+ * @param useLowercase - Specifies whether to include lowercase letters in the character pool. Default value is true.
+ * @returns A randomly generated string of specified length, consisting of a combination of numbers and characters.
+ */
+export function CreateRandomString(
+    length: number = 10,
+    numCount: number = 7,
+    charCount: number = 3,
+    useSymbols: boolean = true,
+    useUppercase: boolean = true,
+    useLowercase: boolean = true
+): string | null {
+
+    const characters = generateCharacterPool(useSymbols, useUppercase, useLowercase);
+    let result = '';
+
+    for (let i = 0; i < length; i++) {
+        if (
+            (numCount > 0 || charCount > 0) &&
+            (numCount === 0 || (charCount === 0 && Math.random() < 0.5))
+        ) {
+                result += getRandomCharacter(characters, useUppercase);
+                charCount--;
+            } else {
+                result += getRandomCharacter('0123456789', false);
+                numCount--;
+            }
+        }
+
+        return result ? result : null;
 }
+
+/**
+ * Generates a string of characters based on the input parameters.
+ * 
+ * @param useSymbols - Specifies whether to include symbols in the character pool.
+ * @param useUppercase - Specifies whether to include uppercase letters in the character pool.
+ * @param useLowercase - Specifies whether to include lowercase letters in the character pool.
+ * @returns A string of characters generated based on the input parameters.
+ */
+export function generateCharacterPool(
+    useSymbols: boolean,
+    useUppercase: boolean,
+    useLowercase: boolean
+): string {
+    let characters = '0123456789';
+    if (useSymbols) {
+        characters += '!@#$%^&*';
+    }
+    if (useUppercase) {
+        characters += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    }
+    if (useLowercase) {
+        characters += 'abcdefghijklmnopqrstuvwxyz';
+    }
+    return characters;
+}
+
+/**
+ * Returns a random character from a given string of characters, with the option to convert uppercase characters to lowercase.
+ * 
+ * @param characters - A string of characters from which a random character will be selected.
+ * @param useUppercase - A flag indicating whether uppercase characters should be used or not.
+ * @returns A single random character from the `characters` string, with the option to convert uppercase characters to lowercase.
+ */
+export function getRandomCharacter(characters: string, useUppercase: boolean): string {
+    const randomIndex = Math.floor(Math.random() * characters.length);
+    const randomChar = characters.charAt(randomIndex);
+    if (!useUppercase && /[A-Z]/.test(randomChar)) {
+        return randomChar.toLowerCase();
+    }
+    return randomChar;
+}
+
 /**
  * @author Vedansh Khandelwal
  * @lang TypeScript (ES6+)
  * @class Cursed for most of my perfect methods.
  * @readonly No Changes Should be made to this class.
  */
-export var Cursed: CursedConstructor;
 
 /* EOF Reached */
