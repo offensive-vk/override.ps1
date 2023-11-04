@@ -165,6 +165,9 @@ function CreateKeyValuePair(key, value) {
       setTimeout(() => {
         resolve({ key, value });
       }, 1500);
+    }).then((result) => {
+      console.log(result);
+      return result;
     });
   });
 }

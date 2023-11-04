@@ -4,6 +4,8 @@
 *  @description: Customized Functions for Special Use using TypeScript.
 *  @language TypeScript v5.3.0 dev edition.
 *  @type {module}
+*  @see {https://github.com/offensive-vk/override.ps1#readme} for details.
+*  @readonly Module , Please don't modify this file.
 *  @copyright (c) override.ps1. All rights reserved.
 */
 /**
