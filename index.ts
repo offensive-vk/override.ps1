@@ -120,6 +120,7 @@ export function Permute<T>(arr: T[]): T[][] {
 export function Swap<T>(arr: T[], i: number, j: number) {
     [arr[i], arr[j]] = [arr[j], arr[i]];
 }
+
 /**
  * Retrieves the value corresponding to a specified key from an object.
  * If the key does not exist in the object, it returns the key itself.
@@ -169,24 +170,15 @@ export interface KeyValuePair<K, V> {
  * const stringBooleanPair = await createKeyValuePair<string, boolean>("isTrue", true);
  * stringBooleanPair is { key: "isTrue", value: true }
  */
-async function createKeyValuePair<K, V>(key: K, value: V): Promise<KeyValuePair<K, V>> {
+export async function CreateKeyValuePair<K, V>(key: K, value: V): Promise<KeyValuePair<K, V>> {
+    console.log(`Created New KeyValuePair -> { ${key} : ${value} }\n`);
     return new Promise((resolve) => {
         setTimeout(() => {
             resolve({ key, value });
-        }, 2000);
+        }, 1500);
     });
 }
-/**
- * Creates a key-value pair using the provided key and value.
- * It is done via using Generic Programming.
- * @param key - The key for the key-value pair.
- * @param value - The value for the key-value pair.
- * @returns A Promise that resolves to void.
- */
-export async function CreateKeyValuePair(key: any, value: any): Promise<void> {
-    const pair = await createKeyValuePair<typeof key, typeof value>(key, value);
-    console.log(`Created New KeyValuePair -> { ${pair.key} : ${pair.value} }\n`);
-}
+
 /**
  * Appends a string to a property of an object and returns the updated object.
  * 
