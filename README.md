@@ -3,8 +3,9 @@ Private Repository for Node Package Manager.
 
 ## Usage in TypeScript:
 ```typescript
-import { Permute, trace, info } from 'override.ps1';
+import { Permute, trace, getValue } from 'override.ps1';
 import { Promise } from '@types/promises';
+import { Swap, appendDataToProperty } from 'override.ps1';
 
 // stdout to console.
 trace("This is a traced message.");
