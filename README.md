@@ -1,5 +1,13 @@
 # override.ps1
-Private Repository for Node Package Manager. 
+Private Repository for Node Package Manager and jsdelivr.net . 
+> Manual :  https://www.jsdelivr.com/package/npm/override.ps1
+
+## How to Install ?
+```bash
+# For package.json file
+$ npm init -y 
+$ npm install override.ps1@latest --no-save
+```
 
 ## Usage in TypeScript:
 ```typescript
