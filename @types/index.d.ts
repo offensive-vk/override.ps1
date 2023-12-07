@@ -109,6 +109,14 @@ declare interface KeyValuePair<K, V> {
  * @param {number} j - The index of the second element to be swapped.
  */
 declare function Swap<T>(arr: T[], i: number, j: number): void;
+/**
+ * Generates all possible permutations of an array without repetition.
+ * @template T - The type of elements in the array.
+ * @param {T[]} arr - The input array for which permutations need to be generated.
+ * @var count Stores total number of permutations generated.
+ * @returns {T[]} - An array containing all possible permutations of the input array.
+ */
+declare function Permute<T>(arr: T[]): T[][];
 
 declare class GenericConstructor{
     constructor();
