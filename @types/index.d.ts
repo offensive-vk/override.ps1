@@ -100,6 +100,16 @@ declare interface KeyValuePair<K, V> {
     key: K;
     value: V;
 }
+/**
+ * Swaps two elements in an array.
+ *
+ * @template T - The type of elements in the array.
+ * @param {T[]} arr - The array in which elements need to be swapped.
+ * @param {number} i - The index of the first element to be swapped.
+ * @param {number} j - The index of the second element to be swapped.
+ */
+declare function Swap<T>(arr: T[], i: number, j: number): void;
+
 declare class GenericConstructor{
     constructor();
     /**
