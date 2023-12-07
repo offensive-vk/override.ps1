@@ -30,6 +30,7 @@
   },
   "homepage": "https://github.com/offensive-vk/override.ps1#readme",
   "devDependencies": {
+    "@types/node": "^20.10.4",
     "tsup": "^7.2.0",
     "typescript": "^5.2.2"
   }

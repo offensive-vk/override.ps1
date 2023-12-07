@@ -9,13 +9,23 @@
 *  @copyright (c) override.ps1. All rights reserved.
 */
 // <reference path="index.d.ts" />
-
 /**
  * Logs a customized message to the console that looks like a info.
  * @param args - An array of arguments that will be logged to the console.
  */
 export function info(...args: any[]): void {
-    console.log(`[info] >> [ ${args} ] << [info]`);
+    process.stdout.write(`[info] >> [ ${args.map(arg => String(arg)).join(' ')} ] << [info]` + '\n')
+    // console.log(`[info] >> [ ${args} ] << [info]`);
+}
+/**
+ * Writes the arguments to the standard output and returns them as an array.
+ * @uses process.stdout.write in backend.
+ * @param args - The arguments to be written to the standard output.
+ * @returns A promise that contains an array of parameters, which are the original arguments passed to the function.
+ */
+export async function stdout(...args: any[]): Promise<string[]> {
+    process.stdout.write(args.map(arg => String(arg)).join(' ') + '\n');
+    return args;
 }
 /**
  * Logs a formatted message to the console.
