@@ -26,5 +26,6 @@ export declare namespace SRC {
         protected constructor () { }
 
         public static getCurrentState<L extends abstract new () => void> ();
+        public static getCurrentPhase<K extends Array<unknown>> (): K | undefined;
     }
 }
