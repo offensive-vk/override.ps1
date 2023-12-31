@@ -25,7 +25,8 @@ export declare namespace SRC {
     export declare class Local<L> extends Module<L> { 
         protected constructor () { }
 
-        public static getCurrentState<L extends abstract new () => void> ();
+        public static getCurrentState<L extends abstract new () => void> (): L | undefined;
         public static getCurrentPhase<K extends Array<unknown>> (): K | undefined;
+        
     }
 }
