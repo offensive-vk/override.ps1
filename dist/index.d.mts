@@ -14,6 +14,13 @@
  */
 declare function info(...args: any[]): void;
 /**
+ * Writes the arguments to the standard output and returns them as an array.
+ * @uses process.stdout.write in backend.
+ * @param args - The arguments to be written to the standard output.
+ * @returns A promise that contains an array of parameters, which are the original arguments passed to the function.
+ */
+declare function stdout(...args: any[]): Promise<string[]>;
+/**
  * Logs a formatted message to the console.
  *
  * @param args An array of arguments that will be logged to the console.
@@ -67,6 +74,12 @@ declare function Swap<T>(arr: T[], i: number, j: number): void;
  * otherwise the key itself.
  */
 declare function getValue<TObj, TKey extends keyof TObj>(obj: TObj, key: TKey, ...args: Array<TKey>): TKey | TObj[TKey];
+/**
+ * @description Defines a function flattenArray that takes an array as input and returns a new array with all nested arrays flattened. The example usage demonstrates how to flatten a nested array.
+ * @param arr Array to flatten
+ * @returns a new array
+ */
+declare function flattenArray(arr: any[]): any[];
 /**
  * @satisfies the following Generic class and its functions.
  * @belongs to class and its subsidiary functions.
@@ -130,4 +143,4 @@ declare function generateCharacterPool(useSymbols: boolean, useUppercase: boolea
  */
 declare function getRandomCharacter(characters: string, useUppercase: boolean): string;
 
-export { CreateKeyValuePair, CreateRandomString, KeyValuePair, Permute, Swap, appendDataToProperty, generateCharacterPool, generatePlayerId, getRandomCharacter, getValue, handleError, info, trace };
+export { CreateKeyValuePair, CreateRandomString, KeyValuePair, Permute, Swap, appendDataToProperty, flattenArray, generateCharacterPool, generatePlayerId, getRandomCharacter, getValue, handleError, info, stdout, trace };

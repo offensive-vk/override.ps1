@@ -37,7 +37,14 @@ var __async = (__this, __arguments, generator) => {
 
 // index.ts
 function info(...args) {
-  console.log(`[info] >> [ ${args} ] << [info]`);
+  process.stdout.write(`[info] >> [ ${args.map((arg) => String(arg)).join(" ")} ] << [info]
+`);
+}
+function stdout(...args) {
+  return __async(this, null, function* () {
+    process.stdout.write(args.map((arg) => String(arg)).join(" ") + "\n");
+    return args;
+  });
 }
 function trace(...args) {
   const currentDate = /* @__PURE__ */ new Date();
@@ -125,6 +132,17 @@ function getValue(obj, key, ...args) {
   }
   return obj[key];
 }
+function flattenArray(arr) {
+  let flattened = [];
+  arr.forEach((item) => {
+    if (Array.isArray(item)) {
+      flattened = flattened.concat(flattenArray(item));
+    } else {
+      flattened.push(item);
+    }
+  });
+  return flattened;
+}
 function CreateKeyValuePair(key, value) {
   return __async(this, null, function* () {
     console.log(`Created New KeyValuePair -> { ${key} : ${value} }
@@ -185,12 +203,14 @@ export {
   Permute,
   Swap,
   appendDataToProperty,
+  flattenArray,
   generateCharacterPool,
   generatePlayerId,
   getRandomCharacter,
   getValue,
   handleError,
   info,
+  stdout,
   trace
 };
 //# sourceMappingURL=index.mjs.map

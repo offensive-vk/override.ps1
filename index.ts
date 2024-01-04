@@ -161,6 +161,24 @@ export function getValue<TObj, TKey extends keyof TObj>(
     }
     return obj[key] as TKey | TObj[TKey];
 }
+/**
+ * @description Defines a function flattenArray that takes an array as input and returns a new array with all nested arrays flattened. The example usage demonstrates how to flatten a nested array.
+ * @param arr Array to flatten
+ * @returns a new array
+ */
+export function flattenArray(arr: any[]): any[] {
+    let flattened: any[] = [];
+
+    arr.forEach((item) => {
+        if (Array.isArray(item)) {
+            flattened = flattened.concat(flattenArray(item));
+        } else {
+            flattened.push(item);
+        }
+    });
+
+    return flattened;
+}
 /** 
  * @satisfies the following Generic class and its functions.
  * @belongs to class and its subsidiary functions.
