@@ -118,6 +118,12 @@ declare function Swap<T>(arr: T[], i: number, j: number): void;
  */
 declare function Permute<T>(arr: T[]): T[][];
 
+/**
+ * @description Defines a function flattenArray that takes an array as input and returns a new array with all nested arrays flattened. The example usage demonstrates how to flatten a nested array.
+ * @param arr Array to flatten
+ * @returns a new array
+ */
+function flattenArray(arr: any[]): any[];
 declare class GenericConstructor{
     constructor();
     /**
