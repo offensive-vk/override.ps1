@@ -1,5 +1,6 @@
 # Prerequisites
 node_modules
+.vscode/
 
 # Compiled Object files
 *.slo

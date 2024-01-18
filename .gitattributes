@@ -1,2 +1,2 @@
-*.txt txt
+*.txt text/-eol
 *.ejs linguist-language=EJS
