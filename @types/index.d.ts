@@ -33,6 +33,7 @@ declare class Stack<T>{
      */
     isEmpty(): boolean;
 }
+
 /**
  * Appends a string to a property of an object and returns the updated object.
  * 
@@ -77,6 +78,7 @@ declare function trace(...args: any[]): void;
  * @returns void
  */
 declare function handleError(test: () => void, ...args: any[]): void;
+
 /**
  * Retrieves the value corresponding to a specified key from an object.
  * If the key does not exist in the object, it returns the key itself.
@@ -92,6 +94,7 @@ declare function handleError(test: () => void, ...args: any[]): void;
 declare function getValue<TObj, TKey extends keyof TObj>(
     obj: TObj, key: TKey, ...args: Array<TKey>
 ): TKey | TObj[TKey] ;
+
 /** 
  * @satisfies the following Generic class and its functions.
  * @belongs to class and its subsidiary functions.
@@ -100,6 +103,7 @@ declare interface KeyValuePair<K, V> {
     key: K;
     value: V;
 }
+
 /**
  * Swaps two elements in an array.
  *
@@ -109,6 +113,7 @@ declare interface KeyValuePair<K, V> {
  * @param {number} j - The index of the second element to be swapped.
  */
 declare function Swap<T>(arr: T[], i: number, j: number): void;
+
 /**
  * Generates all possible permutations of an array without repetition.
  * @template T - The type of elements in the array.
@@ -124,6 +129,7 @@ declare function Permute<T>(arr: T[]): T[][];
  * @returns a new array
  */
 function flattenArray(arr: any[]): any[];
+
 declare class GenericConstructor{
     constructor();
     /**

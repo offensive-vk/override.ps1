@@ -1,7 +1,7 @@
 {
   "name": "override.ps1",
   "version": "2.1.0",
-  "description": "Beautifully Designed and Well Balanced Collection of Various Functions. ",
+  "description": "Beautifully Designed and Well Enhanced Collection of Various Functions / Methods. ",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
