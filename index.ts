@@ -8,7 +8,10 @@
 *  @readonly Module , Please don't modify this file.
 *  @copyright (c) override.ps1. All rights reserved.
 */
+
 // <reference path="index.d.ts" />
+import fs from 'node:fs';
+
 /**
  * Logs a customized message to the console that looks like a info.
  * @param args - An array of arguments that will be logged to the console.
@@ -17,6 +20,7 @@ export function info(...args: any[]): void {
     process.stdout.write(`[info] >> [ ${args.map(arg => String(arg)).join(' ')} ] << [info]` + '\n')
     // console.log(`[info] >> [ ${args} ] << [info]`);
 }
+
 /**
  * Writes the arguments to the standard output and returns them as an array.
  * @uses process.stdout.write in backend.
@@ -27,6 +31,7 @@ export async function stdout(...args: any[]): Promise<string[]> {
     process.stdout.write(args.map(arg => String(arg)).join(' ') + '\n');
     return args;
 }
+
 /**
  * Logs a formatted message to the console.
  * 
@@ -43,6 +48,7 @@ export function trace(...args: any[]): void {
     const ampm = currentDate.getHours() >= 12 ? 'PM' : 'AM';
     console.log(`${currentDate.getFullYear()}-${currentDate.getMonth() + 1}-${currentDate.getDate()} ${hours}:${minutes}:${seconds}.${currentDate.getMilliseconds()} ${ampm} [info] >> [ ${args} ] << [info]`);
 }
+
 /**
  * Generates a random player ID of length 10.
  * @returns A promise that resolves to a string or void, or a string, or null.
@@ -70,6 +76,7 @@ export function generatePlayerId(): Promise<string | void> | string | null {
     }
     return result ? result : null;
 }
+
 /**
  * Executes a callback function and handles any errors that occur during its execution.
  * @param test - The callback function that contains the code to be tested.
@@ -90,6 +97,7 @@ export function handleError(test: () => void, ...args: any[]): void {
     }
     return void (0);
 }
+
 /**
  * Generates all possible permutations of an array without repetition.
  * @template T - The type of elements in the array.
@@ -161,6 +169,7 @@ export function getValue<TObj, TKey extends keyof TObj>(
     }
     return obj[key] as TKey | TObj[TKey];
 }
+
 /**
  * @description Defines a function flattenArray that takes an array as input and returns a new array with all nested arrays flattened. The example usage demonstrates how to flatten a nested array.
  * @param arr Array to flatten
@@ -179,6 +188,7 @@ export function flattenArray(arr: any[]): any[] {
 
     return flattened;
 }
+
 /** 
  * @satisfies the following Generic class and its functions.
  * @belongs to class and its subsidiary functions.
@@ -228,6 +238,25 @@ export function appendDataToProperty<T, K extends keyof T>(obj: T, prop: K, appe
     updatedObj[prop] = updatedObj[prop] + append as T[K];
     return updatedObj;
 }
+
+/**
+ * Retrieves a list of file names from the specified directory.
+ * @param directoryPath - The path of the directory to retrieve file names from.
+ * @returns void
+ */
+export function listFiles(directoryPath: string): void {
+    fs.readdir(directoryPath, (err, files) => {
+        if (err) {
+            console.error(`Error reading directory: ${err}`);
+            return;
+        }
+
+        // Filter out directories and list only files
+        const fileNames = files.filter(file => fs.statSync(file).isFile());
+        
+        console.log('File names:', fileNames);
+    });
+}
 /**
  * @since v.1.7.0
  * @readonly
@@ -250,6 +279,7 @@ class Generic {
         }, randomTimeout);
     }
 }
+
 class CursedConstructor extends Generic {
     /**
      * @constructor for Cursed Class.
@@ -422,7 +452,9 @@ export function getRandomCharacter(characters: string, useUppercase: boolean): s
  * @author Vedansh Khandelwal
  * @lang TypeScript (ES6+)
  * @class Cursed for most of my perfect methods.
- * @readonly No Changes Should be made to this class.
+ * @year 2022 - 24
+ * @copyright Copyright by Respected Authors. All rights reserved.
+ * @readonly No Changes Should be made to this File or any .ts file.
  */
 
 /* EOF Reached */
