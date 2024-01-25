@@ -1,11 +1,12 @@
 # override.ps1
-Private Repository for Node Package Manager and jsdelivr.net . 
-> Manual :  https://www.jsdelivr.com/package/npm/override.ps1
+Private Repository for Node Package Manager and jsdelivr.net 
+* Manual :  https://www.jsdelivr.com/package/npm/override.ps1
 
-## How to Install ?
+## How to Install and Use ?
 ```bash
 # For package.json file
-$ npm init -y 
+$ npm init -y
+# Install the module
 $ npm install override.ps1@latest --no-save
 ```
 
@@ -42,10 +43,10 @@ over.CreateKeyValuePair("userid", 10002);
 
 ```
 
-# TypeScript vs. JavaScript
+## TypeScript vs. JavaScript
 <div align="center">
-<a href="https://www.typescriptlang.org/" target="_blank" rel="noreferrer"> <img src="https://cdn.jsdelivr.net/gh/offensive-vk/Icons@master/typescript/typescript-original.svg" alt="typescript" width="350" height="350"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"> <img src="https://cdn.jsdelivr.net/gh/offensive-vk/Icons@master/javascript/javascript-original.svg" alt="javascript" width="350" height="350"/> </a>
-
+<a href="https://www.typescriptlang.org/" target="_blank" rel="noreferrer"> <img src="https://cdn.jsdelivr.net/gh/offensive-vk/Icons@master/typescript/typescript-original.svg" alt="typescript" width="250" height="250"/> </a> 
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"> <img src="https://cdn.jsdelivr.net/gh/offensive-vk/Icons@master/javascript/javascript-original.svg" alt="javascript" width="250" height="250"/> </a>
 </div>
 
-# Who will be the king in future?
+### Who will be the king in future?
