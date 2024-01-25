@@ -1,6 +1,9 @@
 # override.ps1
-Private Repository for Node Package Manager and jsdelivr.net 
+* Cool and Weird Functions and Classes.
+* Designed in Typescript.
+* Private Repository for Node Package Manager and jsdelivr.net 
 * Manual :  https://www.jsdelivr.com/package/npm/override.ps1
+* Author and Developer : [@offensive-vk]()
 
 ## How to Install and Use ?
 ```bash
