@@ -1,2 +1,3 @@
-*.txt text/-eol
-*.ejs linguist-language=EJS
+*.txt type=text eol=lf
+*.md* linguist-language=MDX
+*.html linguist-language=EJS

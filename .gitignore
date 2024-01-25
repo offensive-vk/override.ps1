@@ -1,6 +1,8 @@
 # Prerequisites
-node_modules
+node_modules/
 .vscode/
+dist/
+dist-ssr/
 
 # Compiled Object files
 *.slo
