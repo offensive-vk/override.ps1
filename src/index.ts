@@ -3,10 +3,10 @@
 *  @author: Vedansh # <admin@override.ps1>
 *  @description: Customized Functions for Special Use using TypeScript.
 *  @language TypeScript v5.3.0 dev edition.
-*  @type {module}
+*  @type {module} Old Source File.
 *  @copyright (c) override.ps1. All rights reserved.
 */
-// <reference path="index.d.ts" />
+/// <reference path="index.d.ts" />
 
 /**
  * Logs a customized message to the console that looks like a info.
@@ -15,6 +15,7 @@
 export function info(...args: any[]): void {
     console.log(`[info] >> [ ${args} ] << [info]`);
 }
+
 /**
  * Logs a formatted message to the console.
  * 
@@ -205,4 +206,5 @@ export class Cursed extends Generic {
         return randomChar;
     }
 }
+
 /* EOF Reached */

@@ -1,12 +1,28 @@
 "use strict";
 /**
 *  @year {2023}
-*  @author: Vedansh <admin@override.ps1>
+*  @author: Vedansh # <admin@override.ps1>
 *  @description: Customized Functions for Special Use using TypeScript.
-*  @language: TypeScript v 5.1.6
-*  @copyright (c) Vedansh <admin>. All rights reserved.
+*  @language TypeScript v5.3.0 dev edition.
+*  @type {module} Old Source File.
+*  @copyright (c) override.ps1. All rights reserved.
 */
-// <reference path="index.d.ts" />
+/// <reference path="index.d.ts" />
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -44,7 +60,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CreateRandomString = exports.CreateKeyValuePair = exports.handleError = exports.generatePlayerId = exports.trace = exports.info = void 0;
+exports.Cursed = exports.CreateKeyValuePair = exports.handleError = exports.generatePlayerId = exports.trace = exports.info = void 0;
 /**
  * Logs a customized message to the console that looks like a info.
  * @param args - An array of arguments that will be logged to the console.
@@ -181,73 +197,87 @@ function CreateKeyValuePair(key, value) {
     });
 }
 exports.CreateKeyValuePair = CreateKeyValuePair;
-/**
- * Generates a random string of specified length, consisting of a combination of numbers and characters.
- * @param length - The length of the random string to be generated. Default value is 10.
- * @param numCount - The number of numeric characters to include in the random string. Default value is 7.
- * @param charCount - The number of non-numeric characters to include in the random string. Default value is 3.
- * @param useSymbols - Specifies whether to include symbols in the character pool. Default value is true.
- * @param useUppercase - Specifies whether to include uppercase letters in the character pool. Default value is true.
- * @param useLowercase - Specifies whether to include lowercase letters in the character pool. Default value is true.
- * @returns A randomly generated string of specified length, consisting of a combination of numbers and characters.
- */
-function CreateRandomString(length, numCount, charCount, useSymbols, useUppercase, useLowercase) {
-    if (length === void 0) { length = 10; }
-    if (numCount === void 0) { numCount = 7; }
-    if (charCount === void 0) { charCount = 3; }
-    if (useSymbols === void 0) { useSymbols = true; }
-    if (useUppercase === void 0) { useUppercase = true; }
-    if (useLowercase === void 0) { useLowercase = true; }
-    var characters = generateCharacterPool(useSymbols, useUppercase, useLowercase);
-    var result = '';
-    for (var i = 0; i < length; i++) {
-        if ((numCount > 0 || charCount > 0) &&
-            (numCount === 0 || (charCount === 0 && Math.random() < 0.5))) {
-            result += getRandomCharacter(characters, useUppercase);
-            charCount--;
+var Generic = /** @class */ (function () {
+    function Generic(username) {
+        this.username = username;
+    }
+    Generic.prototype.rest = function () { };
+    return Generic;
+}());
+var Cursed = /** @class */ (function (_super) {
+    __extends(Cursed, _super);
+    function Cursed() {
+        return _super.call(this, 'undefined') || this;
+    }
+    /**
+     * Generates a random string of specified length, consisting of a combination of numbers and characters.
+     * @param length - The length of the random string to be generated. Default value is 10.
+     * @param numCount - The number of numeric characters to include in the random string. Default value is 7.
+     * @param charCount - The number of non-numeric characters to include in the random string. Default value is 3.
+     * @param useSymbols - Specifies whether to include symbols in the character pool. Default value is true.
+     * @param useUppercase - Specifies whether to include uppercase letters in the character pool. Default value is true.
+     * @param useLowercase - Specifies whether to include lowercase letters in the character pool. Default value is true.
+     * @returns A randomly generated string of specified length, consisting of a combination of numbers and characters.
+     */
+    Cursed.prototype.CreateRandomString = function (length, numCount, charCount, useSymbols, useUppercase, useLowercase) {
+        if (length === void 0) { length = 10; }
+        if (numCount === void 0) { numCount = 7; }
+        if (charCount === void 0) { charCount = 3; }
+        if (useSymbols === void 0) { useSymbols = true; }
+        if (useUppercase === void 0) { useUppercase = true; }
+        if (useLowercase === void 0) { useLowercase = true; }
+        var characters = this.generateCharacterPool(useSymbols, useUppercase, useLowercase);
+        var result = '';
+        for (var i = 0; i < length; i++) {
+            if ((numCount > 0 || charCount > 0) &&
+                (numCount === 0 || (charCount === 0 && Math.random() < 0.5))) {
+                result += this.getRandomCharacter(characters, useUppercase);
+                charCount--;
+            }
+            else {
+                result += this.getRandomCharacter('0123456789', false);
+                numCount--;
+            }
         }
-        else {
-            result += getRandomCharacter('0123456789', false);
-            numCount--;
+        return result ? result : null;
+    };
+    /**
+     * Generates a string of characters based on the input parameters.
+     *
+     * @param useSymbols - Specifies whether to include symbols in the character pool.
+     * @param useUppercase - Specifies whether to include uppercase letters in the character pool.
+     * @param useLowercase - Specifies whether to include lowercase letters in the character pool.
+     * @returns A string of characters generated based on the input parameters.
+     */
+    Cursed.prototype.generateCharacterPool = function (useSymbols, useUppercase, useLowercase) {
+        var characters = '0123456789';
+        if (useSymbols) {
+            characters += '!@#$%^&*';
         }
-    }
-    return result ? result : null;
-}
-exports.CreateRandomString = CreateRandomString;
-/**
- * Generates a string of characters based on the input parameters.
- *
- * @param useSymbols - Specifies whether to include symbols in the character pool.
- * @param useUppercase - Specifies whether to include uppercase letters in the character pool.
- * @param useLowercase - Specifies whether to include lowercase letters in the character pool.
- * @returns A string of characters generated based on the input parameters.
- */
-function generateCharacterPool(useSymbols, useUppercase, useLowercase) {
-    var characters = '0123456789';
-    if (useSymbols) {
-        characters += '!@#$%^&*';
-    }
-    if (useUppercase) {
-        characters += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    }
-    if (useLowercase) {
-        characters += 'abcdefghijklmnopqrstuvwxyz';
-    }
-    return characters;
-}
-/**
- * Returns a random character from a given string of characters, with the option to convert uppercase characters to lowercase.
- *
- * @param characters - A string of characters from which a random character will be selected.
- * @param useUppercase - A flag indicating whether uppercase characters should be used or not.
- * @returns A single random character from the `characters` string, with the option to convert uppercase characters to lowercase.
- */
-function getRandomCharacter(characters, useUppercase) {
-    var randomIndex = Math.floor(Math.random() * characters.length);
-    var randomChar = characters.charAt(randomIndex);
-    if (!useUppercase && /[A-Z]/.test(randomChar)) {
-        return randomChar.toLowerCase();
-    }
-    return randomChar;
-}
+        if (useUppercase) {
+            characters += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        }
+        if (useLowercase) {
+            characters += 'abcdefghijklmnopqrstuvwxyz';
+        }
+        return characters;
+    };
+    /**
+     * Returns a random character from a given string of characters, with the option to convert uppercase characters to lowercase.
+     *
+     * @param characters - A string of characters from which a random character will be selected.
+     * @param useUppercase - A flag indicating whether uppercase characters should be used or not.
+     * @returns A single random character from the `characters` string, with the option to convert uppercase characters to lowercase.
+     */
+    Cursed.prototype.getRandomCharacter = function (characters, useUppercase) {
+        var randomIndex = Math.floor(Math.random() * characters.length);
+        var randomChar = characters.charAt(randomIndex);
+        if (!useUppercase && /[A-Z]/.test(randomChar)) {
+            return randomChar.toLowerCase();
+        }
+        return randomChar;
+    };
+    return Cursed;
+}(Generic));
+exports.Cursed = Cursed;
 /* EOF Reached */ 
