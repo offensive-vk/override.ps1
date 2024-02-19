@@ -10,7 +10,7 @@ class _Node<T> {
  * Represents a linked list data structure.
  * @template T - The type of data stored in the linked list.
  */
-class LinkedList<T> {
+export default class LinkedList<T> {
     private head: _Node<T> | null = null;
 
     /**
