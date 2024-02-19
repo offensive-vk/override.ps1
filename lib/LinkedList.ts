@@ -1,11 +1,24 @@
+/**
+ * Represents a node in a linked list.
+ * @template T - The type of data stored in the node.
+ */
 class _Node<T> {
     constructor(public data: T, public next: _Node<T> | null = null) { }
 }
 
+/**
+ * Represents a linked list data structure.
+ * @template T - The type of data stored in the linked list.
+ */
 class LinkedList<T> {
     private head: _Node<T> | null = null;
 
-    // Insert a new node at the end of the list
+    /**
+     * Insert a new node at the end of the list.
+     * 
+     * @param data - The data to be inserted into the new node.
+     * @returns void
+     */
     insert(data: T): void {
         const newNode = new _Node(data);
         if (!this.head) {
@@ -19,7 +32,12 @@ class LinkedList<T> {
         }
     }
 
-    // Delete a node with the given data
+    /**
+     * Delete a node with the given data.
+     * 
+     * @param data - The data of the node to be deleted.
+     * @returns void
+     */
     delete(data: T): void {
         if (!this.head) {
             return;
@@ -40,7 +58,13 @@ class LinkedList<T> {
         }
     }
 
-    // Traverse and print the linked list
+    /**
+     * Traverse and print the linked list.
+     * 
+     * This method iterates through the linked list and prints the data of each node.
+     * 
+     * @returns void
+     */
     display(): void {
         let current = this.head;
         while (current) {
@@ -57,4 +81,5 @@ linkedList.insert(2);
 linkedList.insert(3);
 linkedList.display(); 
 linkedList.delete(2);
+linkedList.delete(3);
 linkedList.display();
