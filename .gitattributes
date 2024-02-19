@@ -1,3 +1,4 @@
 *.txt type=text eol=lf
 *.md* linguist-language=MDX
 *.html linguist-language=EJS
+*.ejs linguist-language=EJS
