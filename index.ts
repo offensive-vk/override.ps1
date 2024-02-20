@@ -1,8 +1,8 @@
 /**
-*  @year {2023}
+*  @year {2023-24}
 *  @author: Vedansh # <admin@override.ps1>
 *  @description: Customized Functions for Special Use using TypeScript.
-*  @language TypeScript v5.3.0 dev edition.
+*  @language TypeScript v5.4.0 dev edition.
 *  @type {module}
 *  @see {https://github.com/offensive-vk/override.ps1#readme} for details.
 *  @readonly Module , Please don't modify this file.
@@ -10,7 +10,16 @@
 */
 
 // <reference path="index.d.ts" />
+// <reference path="types.d.ts" />
+
 import fs from 'node:fs';
+import HashMap from './lib/HashMap';
+import LinkedList from './lib/LinkedList';
+import List from './lib/List';
+import Queue from './lib/Queue';
+import Stack from './lib/Stack';
+import BinaryTree from './lib/Tree';
+import { TreeNode } from './lib/Tree';
 
 /**
  * Logs a customized message to the console that looks like a info.
@@ -456,5 +465,5 @@ export function getRandomCharacter(characters: string, useUppercase: boolean): s
  * @copyright Copyright by Respected Authors. All rights reserved.
  * @readonly No Changes Should be made to this File or any .ts file.
  */
-
+export { HashMap, LinkedList, List, Queue, Stack, BinaryTree, TreeNode };
 /* EOF Reached */

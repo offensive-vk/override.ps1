@@ -12,7 +12,7 @@ A hashMap, also known as a hash table or dictionary in some programming language
  */
 declare class HashMap {
 
-    private table: { [key: string]: any } = {};
+    private table: { [key: string]: any };
 
     /**
      * Hash function to generate an index for the key.
@@ -69,7 +69,7 @@ declare class List<T> {
      * Constructs a new List instance.
      * @param elements Optional initial elements to initialize the list.
      */
-    constructor(elements: T[] = []);
+    constructor(elements: T[]);
 
     /**
      * Appends an element to the end of the list.
@@ -125,7 +125,7 @@ declare class List<T> {
  * @template T - The type of data stored in the node.
  */
 declare class _Node<T> {
-    constructor(public data: T, public next: _Node<T> | null = null) { }
+    constructor(public data: T, public next: _Node<T> | null);
 }
 
 /**
@@ -134,7 +134,7 @@ declare class _Node<T> {
  * @template T - The type of data stored in the linked list.
  */
 declare class LinkedList<T> {
-    private head: _Node<T> | null = null;
+    private head: _Node<T> | null;
 
     /**
      * Insert a new node at the end of the list.
@@ -223,11 +223,7 @@ declare class TreeNode<T> {
     left: TreeNode<T> | null;
     right: TreeNode<T> | null;
 
-    constructor(data: T) {
-        this.data = data;
-        this.left = null;
-        this.right = null;
-    }
+    constructor(data: T);
 }
 
 /**
