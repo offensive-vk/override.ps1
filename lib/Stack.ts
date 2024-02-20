@@ -1,4 +1,5 @@
 /**
+ * @description A stack is a linear data structure that follows the Last In, First Out (LIFO) principle, meaning that the element that is inserted last will be the first one to be removed. It operates much like a stack of plates where you can only add or remove the top plate.
  * Represents a stack data structure.
  * @template T The type of elements in the stack.
  */

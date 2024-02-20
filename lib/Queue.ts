@@ -1,4 +1,5 @@
 /**
+ * @description A queue is a linear data structure that follows the First In, First Out (FIFO) principle, meaning that the element that is inserted first will be the first one to be removed. It operates much like a real-world queue or line where people stand in line and are served in the order they arrived.
  * @param T represents the generic data type for queue.
  * Represents a queue data structure.
  */
@@ -61,6 +62,7 @@ class Queue<T> {
         console.log(this.items.join(' '));
     }
 }
+/*
 // Example usage:
 const queue = new Queue<number>();
 
@@ -78,3 +80,4 @@ console.log("Front element:", queue.front());
 console.log("Queue size:", queue.size());
 
 console.log("Is queue empty?", queue.isEmpty());
+*/

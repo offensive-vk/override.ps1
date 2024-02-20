@@ -7,6 +7,7 @@ class _Node<T> {
 }
 
 /**
+ * @description A linked list is a linear data structure in which elements, called nodes, are stored in a sequence. Each node contains a data element and a reference (or pointer) to the next node in the sequence. Unlike arrays, where elements are stored in contiguous memory locations, linked lists do not require contiguous memory allocation. 
  * Represents a linked list data structure.
  * @template T - The type of data stored in the linked list.
  */
