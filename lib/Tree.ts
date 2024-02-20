@@ -19,6 +19,8 @@ export class TreeNode<T> {
 }
 
 /**
+ * @description 
+A binary tree is a hierarchical data structure in which each node has at most two children, referred to as the left child and the right child. Each node in a binary tree contains a piece of data, and the structure of the tree follows a specific order based on the relationship between parent nodes and their children.
  * Represents a binary tree data structure.
  */
 export default class BinaryTree<T> {
@@ -40,7 +42,13 @@ export default class BinaryTree<T> {
             this.insertNode(this.root, newNode);
         }
     }
-
+    /**
+     * Inserts a new node into the binary tree.
+     * 
+     * @param root The root node of the binary tree.
+     * @param newNode The new node to be inserted.
+     * @returns void
+     */
     private insertNode(root: TreeNode<T>, newNode: TreeNode<T>): void {
         if (newNode.data < root.data) {
             if (!root.left) {
@@ -66,6 +74,13 @@ export default class BinaryTree<T> {
         return this.searchNode(this.root, data);
     }
 
+    /**
+     * Searches for a node with the given data in the binary tree.
+     * 
+     * @param root The root node of the binary tree.
+     * @param data The data to search for.
+     * @returns The node containing the data, or null if not found.
+     */
     private searchNode(root: TreeNode<T> | null, data: T): TreeNode<T> | null {
         if (!root || root.data === data) {
             return root;
@@ -87,6 +102,13 @@ export default class BinaryTree<T> {
         return result;
     }
 
+    /**
+     * Performs an in-order traversal of the binary tree.
+     * 
+     * @param node The current node being visited.
+     * @param result An array to store the elements of the tree in sorted order.
+     * @returns void
+     */
     private inOrderTraversalHelper(node: TreeNode<T> | null, result: T[]): void {
         if (node) {
             this.inOrderTraversalHelper(node.left, result);
@@ -123,6 +145,13 @@ export default class BinaryTree<T> {
         return result;
     }
 
+    /**
+     * Performs a post-order traversal of the binary tree.
+     * 
+     * @param node The current node being visited.
+     * @param result An array to store the elements of the tree in post-order traversal order.
+     * @returns void
+     */
     private postOrderTraversalHelper(node: TreeNode<T> | null, result: T[]): void {
         if (node) {
             this.postOrderTraversalHelper(node.left, result);
@@ -162,6 +191,12 @@ export default class BinaryTree<T> {
         return this.calculateHeight(this.root);
     }
 
+    /**
+     * Calculates the height of the binary tree.
+     * 
+     * @param node The current node being visited.
+     * @returns The height of the tree.
+     */
     private calculateHeight(node: TreeNode<T> | null): number {
         if (!node) {
             return 0;
@@ -180,6 +215,7 @@ export default class BinaryTree<T> {
     }
 }
 
+/*
 // Example usage:
 const tree = new BinaryTree<number>();
 tree.insert(5);
@@ -196,3 +232,4 @@ console.log(tree.postOrderTraversal());
 console.log(tree.levelOrderTraversal());
 console.log(tree.getHeight());
 console.log(tree.isEmpty()); 
+*/
