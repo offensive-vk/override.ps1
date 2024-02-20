@@ -75,6 +75,7 @@ export default class LinkedList<T> {
     }
 }
 
+/*
 // Example usage
 const linkedList = new LinkedList<number>();
 linkedList.insert(1);
@@ -84,3 +85,4 @@ linkedList.display();
 linkedList.delete(2);
 linkedList.delete(3);
 linkedList.display();
+*/

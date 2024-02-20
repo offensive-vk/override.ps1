@@ -3,7 +3,7 @@
  * @param T represents the generic data type for queue.
  * Represents a queue data structure.
  */
-class Queue<T> {
+export default class Queue<T> {
     private items: T[];
 
     /**
