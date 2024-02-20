@@ -29,6 +29,22 @@ export function info(...args: any[]): void {
     process.stdout.write(`[info] >> [ ${args.map(arg => String(arg)).join(' ')} ] << [info]` + '\n')
     // console.log(`[info] >> [ ${args} ] << [info]`);
 }
+/**
+ * Reads user input from the standard input (stdin).
+ * @returns A promise that resolves to the user input as a string.
+ */
+export async function stdin(): Promise<string> {
+    process.stdout.write(''); // Flush stdout buffer
+    process.stdin.resume();
+    process.stdin.setEncoding('utf-8');
+
+    return new Promise<string>((resolve) => {
+        process.stdin.once('data', (data: string) => {
+            process.stdin.pause();
+            resolve(data.trim());
+        });
+    });
+}
 
 /**
  * Writes the arguments to the standard output and returns them as an array.
