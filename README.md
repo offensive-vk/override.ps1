@@ -1,10 +1,10 @@
 # override.ps1 - Typescript Based Minimal JS Functions
 
-* Cool and Goofy Functions and Classes.
+* Some Cool and Goofy Functions and Classes.
 * Data Structures are also supported.
 * Designed in Typescript, Supports both JS and TS.
 * Private Repository for Node Package Manager and jsdelivr.net
-* Manual :  <https://www.jsdelivr.com/package/npm/override.ps1>
+* CDN (jsdelivr) :  <https://www.jsdelivr.com/package/npm/override.ps1>
 * Maintainer and Developer : [@offensive-vk](https://github.com/offensive-vk/)
 
 ## How to Install and Use ?
@@ -13,7 +13,7 @@
 # For package.json file
 $ npm init -y
 # Install the module
-$ npm install override.ps1@latest --no-save
+$ npm install override.ps1@latest --save-dev
 ```
 
 ## Usage in TypeScript
@@ -58,4 +58,4 @@ over.CreateKeyValuePair("userid", 10002);
 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"> <img src="https://cdn.jsdelivr.net/gh/offensive-vk/Icons@master/javascript/javascript-original.svg" alt="javascript" width="250" height="250"/> </a>
 </div>
 
-### Who will be the king in future?
+### Who will be the king in future ?
