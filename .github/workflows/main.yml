@@ -16,5 +16,5 @@ jobs:
     - name: Check out repository
       uses: actions/checkout@v2
 
-    - name: Greet repository owner
+    - name: Greet everyone
       run: echo "Hello Everyone ! Welcome to our repository."
