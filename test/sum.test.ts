@@ -1,4 +1,3 @@
-import { N } from "vitest/dist/reporters-QGe8gs4b";
 import sum from "./sum";
 import {it, expect, test} from "vitest";
 import { describe } from "node:test";
