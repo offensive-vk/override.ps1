@@ -1,0 +1,20 @@
+name: Greetings
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+    - master
+
+jobs:
+  greet_owner:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Check out repository
+      uses: actions/checkout@v2
+
+    - name: Greet repository owner
+      run: echo "Hello Everyone ! Welcome to our repository."
