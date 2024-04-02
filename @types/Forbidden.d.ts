@@ -1,3 +1,4 @@
+/** ====================================================== */
 import { Hash } from "crypto";
 
 export declare namespace SRC {
@@ -30,3 +31,5 @@ export declare namespace SRC {
         
     }
 }
+/**@extends {types.d.ts} */
+/** ====================================================== */
