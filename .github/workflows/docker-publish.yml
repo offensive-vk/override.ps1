@@ -1,9 +1,4 @@
-name: Docker Image Publish CI
-
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
+name: CI / Docker Publish Image
 
 on:
   schedule:
@@ -14,11 +9,8 @@ on:
     branches: [ "master" ]
 
 env:
-  # Use docker.io for Docker Hub if empty
   REGISTRY: docker.io
-  # github.repository as <account>/<repo>
   IMAGE_NAME: ntsystems/override.ps1
-
 
 jobs:
   build:
