@@ -1,4 +1,4 @@
-import { appendDataToProperty, flattenArray } from "../dist";
+import { appendDataToProperty, flattenArray } from "../index";
 import { it, expect, test } from "vitest";
 
 var obj: { first: string, last: string } = {
