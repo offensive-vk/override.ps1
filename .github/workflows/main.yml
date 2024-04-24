@@ -1,4 +1,4 @@
-name: Greetings
+name: CI / Greetings
 
 on:
   push:

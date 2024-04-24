@@ -5,8 +5,6 @@ on:
     - cron: '29 2 * * *'
   push:
     branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
 
 env:
   REGISTRY: docker.io
@@ -19,8 +17,6 @@ jobs:
     permissions:
       contents: read
       packages: write
-      # This is used to complete the identity challenge
-      # with sigstore/fulcio when running outside of PRs.
       id-token: write
 
     steps:
