@@ -1,6 +1,6 @@
 {
   "name": "override.ps1",
-  "version": "3.5.0",
+  "version": "4.0.0",
   "description": "Beautifully Designed and Well Enhanced Collection of Various Functions / Methods. ",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
