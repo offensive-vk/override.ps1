@@ -1,4 +1,4 @@
-name: CI / Docker Publish Image
+name: CD / Docker Publish Image
 
 on:
   schedule:
@@ -81,4 +81,6 @@ jobs:
           DIGEST: ${{ steps.build-and-push.outputs.digest }}
         # This step uses the identity token to provision an ephemeral certificate
         # against the sigstore community Fulcio instance.
-        run: echo "Image with ${TAGS} tag has been sucessfully Signed."
+        run: |
+          echo "Image with ${TAGS} tag has been sucessfully Signed." | base64
+          echo "Image with ${TAGS} tag has been sucessfully Signed."
