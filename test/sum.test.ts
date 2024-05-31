@@ -1,11 +1,10 @@
 import sum from "./sum";
-import {it, expect, test} from "vitest";
+import { it, expect, test } from "vitest";
 import { describe } from "node:test";
 
 test('returns the sum of all numbers passed to it', () => {
     expect(sum(10,20,20)).toBe(50);
 })
-
 
 // Returns the sum of two positive integers
 it('should return the sum of two positive integers', () => {

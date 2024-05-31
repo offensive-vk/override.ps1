@@ -107,7 +107,7 @@ export function generatePlayerId(): Promise<string | void> | string | null {
  * @param test - The callback function that contains the code to be tested.
  * @param args - Additional arguments that can be passed to the callback function.
  * @returns void
- */
+
 export function handleError(test: () => void, ...args: any[]): void {
     try {
         console.log(`\n ======================= \n`);
@@ -121,6 +121,50 @@ export function handleError(test: () => void, ...args: any[]): void {
         console.log(`\n ======================= \n`);
     }
     return void (0);
+}
+**/
+/**
+ * Executes a given function with provided arguments, handling any errors that occur.
+ * 
+ * This function is designed to wrap another function call, providing standardized
+ * logging before and after the function execution, as well as catching and logging
+ * any errors that are thrown during the function's execution. It also ensures that
+ * a final message is logged indicating that the function has completed execution,
+ * whether or not an error occurred.
+ * 
+ * @template F - The type of the function to be executed.
+ * @param {F} fn - The function to be executed. This can be any function with any number and type of parameters.
+ * @param {...Parameters<F>} args - The arguments to be passed to the function `fn`.
+ * @returns {ReturnType<F> | void} - Returns the result of the function `fn` if it completes successfully, or `void` if an error occurs.
+ * @example
+ * ```
+ * function testFunction(arg1: string, arg2: number): string {
+ *     if (arg2 < 0) {
+ *         throw new Error('Negative number');
+ *     }
+ *     return `${arg1} is ${arg2}`;
+ * }
+ * 
+ * // Using handleError with a function that throws an error
+ * handleError(testFunction, 'Number', -1); // Should log an error
+ * 
+ * // Using handleError with a function that completes successfully
+ * handleError(testFunction, 'Number', 5);  // Should log the result
+ * ```
+ */
+export function handleError<F extends (...args: any[]) => any>(fn: F, ...args: Parameters<F>): ReturnType<F> | void {
+    try {
+        console.log(`\n ======================= \n`);
+        info('Begin Testing');
+        const result = fn(...args);
+        info('End Testing');
+        return result;
+    } catch (error: any) {
+        console.log(`[ Some Error Occurred: ${error.message}]`);
+    } finally {
+        console.log(`[ Function Has Successfully Executed and All the Errors are Handled. ]`);
+        console.log(`\n ======================= \n`);
+    }
 }
 
 /**
@@ -178,7 +222,6 @@ export function Swap<T>(arr: T[], i: number, j: number) {
  * @returns {TKey | TObj[TKey]} - The value corresponding to the specified key if it exists in the object,
  * otherwise the key itself.
  */
-
 export function getValue<TObj, TKey extends keyof TObj>(
         obj: TObj, key: TKey, ...args: Array<TKey>
     ): TKey | TObj[TKey] {
