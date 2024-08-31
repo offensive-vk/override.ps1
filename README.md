@@ -1,20 +1,18 @@
 # override.ps1 - Typescript Based Minimal JS Functions
 
+* My Personal TypeScript Helper Functions.
 * Some Cool and Goofy Functions and Classes.
 * Data Structures are also supported.
 * Designed in Typescript, Supports both JS and TS.
 * Private Repository for Node Package Manager and jsdelivr.net
-* CDN (jsdelivr) :  <https://www.jsdelivr.com/package/npm/override.ps1>
+* CDN (jsdelivr): <https://www.jsdelivr.com/package/npm/override.ps1>
 * Maintainer and Developer : [@offensive-vk](https://github.com/offensive-vk/)
 
 ## How to Install and Use ?
 
-```bash
-# For package.json file
-$ npm init -y
-# Install the module
-$ npm install override.ps1@latest --save-dev
-```
+```$ npm init -y```
+
+```$ npm install override.ps1@latest --save-dev ```
 
 ## Usage in TypeScript
 
@@ -35,7 +33,6 @@ R.forEach((permutation) => {
     console.log(permutation);
 });
 
-trace(" == End of Script == ");
 ```
 
 ## Usage in JavaScript
@@ -54,8 +51,6 @@ over.CreateKeyValuePair("userid", 10002);
 ## TypeScript vs. JavaScript
 
 <div align="center">
-<a href="https://www.typescriptlang.org/" target="_blank" rel="noreferrer"> <img src="https://cdn.jsdelivr.net/gh/offensive-vk/Icons@master/typescript/typescript-original.svg" alt="typescript" width="250" height="250"/> </a>
-<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"> <img src="https://cdn.jsdelivr.net/gh/offensive-vk/Icons@master/javascript/javascript-original.svg" alt="javascript" width="250" height="250"/> </a>
+    <a href="https://www.typescriptlang.org/" target="_blank" rel="noreferrer"> <img src="https://cdn.jsdelivr.net/gh/offensive-vk/Icons@master/typescript/typescript-original.svg" alt="typescript" width="250" height="250"/> </a>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"> <img src="https://cdn.jsdelivr.net/gh/offensive-vk/Icons@master/javascript/javascript-original.svg" alt="javascript" width="250" height="250"/> </a>
 </div>
-
-### Who will be the king in future ?
